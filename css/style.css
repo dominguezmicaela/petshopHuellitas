@@ -1,0 +1,123 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    
+}
+html{
+    /*1REM=2PX*/
+    font-size: 62.5%;
+}
+body{
+    font-family: "Plus Jakarta Sans";
+    line-height: 1.5;/*interlineado*/
+    font-size: 1.6rem;
+    background: #567A4F;
+    color: #EDE0D4;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+main{
+    width: 80%;
+    margin: auto;
+    padding-bottom:2rem;
+    flex:1;
+    flex-direction: column;
+    align-items: center;
+}
+h1{
+    color:white ;
+    font-size: 3rem;
+    font: weight 800px; 
+    line-height: 1.15;
+
+
+}
+.btn{
+    background-color: #2F4858; /* Azul Marino (el más llamativo) */
+    color: #EDE0D4; /* Texto Beige Claro */
+    padding: 12px 20px;
+    border: none;
+    border-radius: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-flex; 
+    align-items: center; 
+    gap: 8px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra más fuerte para resaltar */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+
+}
+header,footer{
+    background-color:#EBDAC7;
+    color:#2F4858;
+    font-weight: bold;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo-circular {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.div-log{
+    margin-left:1rem;
+    font-size:3rem;
+    font-weight: bold;
+}
+.logo,.header-nav,ul,li,a{
+    color:inherit;
+    text-decoration:none;
+    display: inline-block;
+    padding: 0.2rem;
+}
+.footer, .nav, .ul,.li{
+    padding: 1rem;
+}
+
+/*HOME*/
+.titulo-home{
+    margin:3rem;
+
+}
+.titulo-producto{
+    text-align: center;
+    margin:3rem;
+}
+.parrafo{
+    width: 80%;
+    text-align:center;
+    font-size: 2rem;
+    padding:3rem;
+}
+.contenedor-tarjetas{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+.card{
+    background-color: #EBDAC7;
+    color:#2F4858;
+    width: 40rem;
+    padding-bottom: 2rem;
+    border-radius:1rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:1rem;
+
+
+}
+.card, img{
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    object-fit: cover;
+}
