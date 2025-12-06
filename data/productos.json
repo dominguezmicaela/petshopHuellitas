@@ -1,0 +1,13 @@
+[
+    {"id":"1","nombre":"Alimento","precio": 35000,"img":"img/ALIMENTO.jpg"},
+    {"id":"2","nombre":"Arnes","precio": 25000,"img":"img/ARNES.jpg"},
+    {"id":"3","nombre":"Bebedero","precio": 75000,"img":"img/BEBEDERO.jpg"},
+    {"id":"4","nombre":"Cama","precio": 60000,"img":"img/CAMA.jpg"},
+    {"id":"5","nombre":"Cepillo","precio": 5000,"img":"img/CEPILLO.jpg"},
+    {"id":"6","nombre":"Dispenser","precio": 75000,"img":"img/DISPENSER.jpg"},
+    {"id":"7","nombre":"Juguete","precio": 15000,"img":"img/JUGUETE.jpg"},
+    {"id":"8","nombre":"Rascador","precio": 50000,"img":"img/RASCADOR.jpg"},
+    
+    
+
+]
