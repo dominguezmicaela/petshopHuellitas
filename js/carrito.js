@@ -1,4 +1,4 @@
-import { alertaCarritoVacio, alertaCompraExitosa, alertaEliminarProducto } from "./alertas.js";
+import { alertaCarritoVacio, alertaCompraExitosa, alertaEliminarProducto, alertaProductoEliminadoExitoso } from "./alertas.js";
 import { eliminarProducto, vaciarCarrito } from "./funcionesCarrito.js";
 import { obtenerCarrito,guardarCarrito } from "./storage.js";
 import { actualizarContador } from "./ui.js";
@@ -15,10 +15,7 @@ const renderizarCarrito = () => {
   divResumen.innerHTML="";
 
   if (carrito.length == 0) {
-    const mensaje = document.createElement("p");
-    mensaje.classList.add("mensaje-carrito-vacio");
-    mensaje.textContent = "Tu carrito esta vacio";
-    contenedor.append(mensaje);
+    
     divResumen.style.display="none";// oculta el resumen
     //llamo a la funcion de alerta para el carrito vacio
     alertaCarritoVacio();
@@ -110,6 +107,7 @@ const btnRestar = document.createElement("button");
         if(result.isConfirmed) {
             eliminarProducto(indice);
             renderizarCarrito();
+            alertaProductoEliminadoExitoso(producto.nombre);
         }
       })
     });
@@ -127,6 +125,7 @@ const btnRestar = document.createElement("button");
   btnVaciar.addEventListener("click", () => {
     vaciarCarrito();
     renderizarCarrito();
+    alertaCarritoVacio();
   });
   divAcciones.appendChild(btnVaciar);
 
@@ -163,6 +162,7 @@ const btnRestar = document.createElement("button");
       alertaCompraExitosa().then(() => {
           vaciarCarrito();
           renderizarCarrito();
+          alertaCompraExitosa();
           window.location.href = "../index.html";
       });
   });

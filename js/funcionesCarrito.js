@@ -25,12 +25,12 @@ export const eliminarProducto = (indice) => {
   carrito.splice(indice, 1); //modifica  array en el tercer argumento seria para reemplazar pero como no pase nada entonces lo elimina.
   guardarCarrito(carrito);
   actualizarContador(carrito);
-  mostrarMensaje("Producto eliminado");
+  
 };
 
 //vaciar el carrito
 export const vaciarCarrito = () => {
   vaciarCarritoS();
   actualizarContador([]);
-  mostrarMensaje("Carrito vaciado");
+  
 };

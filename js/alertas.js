@@ -12,7 +12,6 @@ export const alertaProductoAgregado = (producto) => {
     return Swal.fire({
         title: "¡Producto agregado!",
         text: `Agregaste ${producto.nombre} al carrito`,
-        // Sugerencia: Asegúrate que producto.img tenga la ruta completa o manéjala dinámicamente
         imageUrl: producto.img, 
         imageWidth: 100,
         imageAlt: producto.nombre,
@@ -22,10 +21,8 @@ export const alertaProductoAgregado = (producto) => {
         confirmButtonText: "Seguir comprando",
         cancelButtonText: "Ir al carrito"
     }).then((result) => {
-        // Swal.DismissReason.cancel es cuando se pulsa el botón de cancelar explícitamente
         if (result.dismiss === Swal.DismissReason.cancel) {
-            // Nota: Revisa que esta ruta sea correcta dependiendo de dónde estés
-            window.location.href = "./carrito.html"; 
+           window.location.href = "pages/carrito.html";
         }
     });
 };
@@ -70,5 +67,15 @@ export const alertaCarritoVacio = () => {
         if (result.isConfirmed) {
             window.location.href = "../index.html";
         }
+    });
+};
+export const alertaProductoEliminadoExitoso = (nombre) => {
+    return Swal.fire({
+        title: "¡Eliminado!",
+        text: `El producto ${nombre} ha sido quitado del carrito.`,
+        icon: "success",
+        confirmButtonText: "Aceptar",
+        customClass: estilosComunes, // ¡Importante para que use tus estilos!
+        buttonsStyling: false
     });
 };
