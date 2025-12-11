@@ -40,26 +40,29 @@
       </nav>
     </header>
 
-    <main>
-      <h1 class="titulo-home">Contactanos</h1>
-      <form 
-       class="form-contacto"
-       action="https://formspree.io/f/xwprwegz"
-       method="POST">
-       <div class="grupo-input">
-        <label for="email">Email</label>
-        <input id="email"type="email"name="email" />
-        </div>
-      <div class="grupo-input">
-        <label for="mensaje">Ingrese un mensaje</label>
-        <textarea id="mensaje" name="message"></textarea>
+<main class="contacto-main">
+    <div class="contacto-card">
         
-      </div>
-      <button class="btn" type="submit">Enviar</button>
-      
-      </form>
-    </main>
+        <h1 class="titulo-contacto">Contáctanos</h1>
+        <p class="subtitulo-contacto">¿Tienes dudas sobre algún producto? ¡Escríbenos!</p>
 
+        <form action="https://formspree.io/f/xwprwegz" method="POST" class="form-area">
+            
+            <div class="grupo-input">
+                <label for="email">Email</label>
+                <input id="email" type="email" name="email" placeholder="tucorreo@ejemplo.com" required />
+            </div>
+
+            <div class="grupo-input">
+                <label for="mensaje">Mensaje</label>
+                <textarea id="mensaje" name="message" rows="5" placeholder="Escribe aquí tu consulta..." required></textarea>
+            </div>
+
+            <button class="btn-enviar" type="submit">Enviar</button>
+
+        </form>
+    </div>
+</main>
 
     <footer>Sitio realizado por Micaela</footer>
     <script src="./js/contacto.js" type="module"></script>
