@@ -1,8 +1,8 @@
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 
-COPY . .
 
+COPY . .
 
 RUN dotnet restore "Huellitas.API/Huellitas.API.csproj"
 RUN dotnet publish "Huellitas.API/Huellitas.API.csproj" -c Release -o /app/publish
