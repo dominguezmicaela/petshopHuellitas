@@ -4,8 +4,9 @@ WORKDIR /src
 
 COPY . .
 
-RUN dotnet restore "Huellitas.API/Huellitas.API.csproj"
-RUN dotnet publish "Huellitas.API/Huellitas.API.csproj" -c Release -o /app/publish
+
+RUN dotnet restore $(find . -name "*.csproj" | grep "Huellitas.API.csproj")
+RUN dotnet publish $(find . -name "*.csproj" | grep "Huellitas.API.csproj") -c Release -o /app/publish
 
 FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS final
 WORKDIR /app
