@@ -1,21 +1,18 @@
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /app
 
-# Copia los archivos del proyecto y restaura las dependencias
-COPY *.csproj ./
-RUN dotnet restore
+# Como el Root Directory ya es Huellitas.API, solo copiamos el archivo
+COPY ["Huellitas.API.csproj", "./"]
+RUN dotnet restore "Huellitas.API.csproj"
 
-# Copia el resto de los archivos y compila
-COPY . ./
-RUN dotnet publish -c Release -o out
+COPY . .
+RUN dotnet publish "Huellitas.API.csproj" -c Release -o /app/publish
 
-# Imagen final para correr la app
-FROM mcr.microsoft.com/dotnet/aspnet:9.0
+FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS final
 WORKDIR /app
-COPY --from=build /app/out .
+COPY --from=build /app/publish .
 
-# Expone el puerto que usa Render
-EXPOSE 8080
 ENV ASPNETCORE_URLS=http://+:8080
+EXPOSE 8080
 
 ENTRYPOINT ["dotnet", "Huellitas.API.dll"]
