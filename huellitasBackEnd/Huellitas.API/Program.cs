@@ -12,6 +12,18 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<HuellitasContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+//servicio de cors
+builder.Services.AddCors(options =>
+{
+   options.AddPolicy("PermitirFrontend",
+        policy =>
+        {
+            policy.WithOrigins("http://127.0.0.1:5500", "http://localhost:5500") // Aceptamos tu Live Server
+                  .AllowAnyHeader()
+                  .AllowAnyMethod();
+        });
+});
+
 //construccion
  var app=builder.Build();
 
@@ -24,7 +36,8 @@ if (app.Environment.IsDevelopment())
 
 //redireccion a https seguro
 app.UseHttpsRedirection();
-
+//activo politica cors
+app.UseCors("PermitirFrontend");
 //validacion de usuario mas adelante
 app.UseAuthorization();
 

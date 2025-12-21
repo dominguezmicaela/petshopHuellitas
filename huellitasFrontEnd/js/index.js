@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const contenedor = document.getElementById("contenedor-tarjetas");
   const carrito = obtenerCarrito();
   actualizarContador(carrito);
-  fetch("./data/productos.json")
+  fetch("http://localhost:5055/api/Productos")
     .then((res) => {
       if (!res.ok) {
         throw new Error(`Error HTTP status: ${res.status}`); // prestar atencion al tipo de comillas
@@ -15,19 +15,29 @@ document.addEventListener("DOMContentLoaded", () => {
       return res.json();
     })
     .then((data) => {
+      console.log("PRODUCTOS RECIBIDOS", data);
       //aca se hace el renderizado de las tarjetas con el for
       data.forEach((producto) => {
         const tarjeta = document.createElement("article");
         tarjeta.classList.add("card");
+
         const img = document.createElement("img");
         img.alt = producto.nombre;
-        img.src = `./${producto.img}`;
+        img.src = `./img/${producto.img}`;
+
         const titulo = document.createElement("h3");
         titulo.textContent = producto.nombre;
+
         const precio = document.createElement("p");
         precio.textContent = `$${producto.precio}`;
+
+        const stockInfo = document.createElement("p");
+        stockInfo.classList.add("stock-info");
+        stockInfo.textContent = `Stock disponible: ${producto.stock}`;
+
         const boton = document.createElement("button");
         boton.classList.add("btn");
+
         boton.textContent = "Agregar al carrito";
         boton.addEventListener("click", () => {
           agregarAlCarrito(producto);
@@ -35,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
         tarjeta.appendChild(img);
         tarjeta.appendChild(titulo);
         tarjeta.appendChild(precio);
+        tarjeta.appendChild(stockInfo);
         tarjeta.appendChild(boton);
         contenedor.appendChild(tarjeta);
       });
