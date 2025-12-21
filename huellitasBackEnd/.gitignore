@@ -482,3 +482,10 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+# Evitar subir configuraciones con claves
+appsettings.json
+appsettings.Development.json
+
+# Carpetas de compilación (esto siempre tiene que estar)
+bin/
+obj/

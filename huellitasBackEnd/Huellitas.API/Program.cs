@@ -10,15 +10,14 @@ builder.Services.AddSwaggerGen();
 
 // conexion a la bdd
 builder.Services.AddDbContext<HuellitasContext>(options =>
-options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
+options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 //servicio de cors
 builder.Services.AddCors(options =>
 {
    options.AddPolicy("PermitirFrontend",
         policy =>
         {
-            policy.WithOrigins("http://127.0.0.1:5500", "http://localhost:5500") // Aceptamos tu Live Server
+            policy.WithOrigins("http://127.0.0.1:5500", "http://localhost:5500")
                   .AllowAnyHeader()
                   .AllowAnyMethod();
         });
