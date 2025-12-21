@@ -89,7 +89,7 @@ namespace Huellitas.Api.Controllers
                 }
             }
 
-            // 4. Devolvemos "NoContent" (código 204), que significa "Todo OK, pero no te devuelvo nada"
+            // valor de retorno
             return NoContent();
         }
     }
