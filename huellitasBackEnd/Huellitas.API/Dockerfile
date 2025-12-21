@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /app
 
-# Como el Root Directory ya es Huellitas.API, solo copiamos el archivo
+# Al estar el Dockerfile en la misma carpeta, el archivo .csproj está ahí mismo
 COPY ["Huellitas.API.csproj", "./"]
 RUN dotnet restore "Huellitas.API.csproj"
 
