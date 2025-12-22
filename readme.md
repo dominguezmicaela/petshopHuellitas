@@ -1,46 +1,58 @@
-# 🐾 Huellitas - Pet Shop Online
+# Huellitas - Pet Shop Online 
 
-**Proyecto Final - Curso de Desarrollo Web**
+**De Front-End a Full Stack**
 
-¡Bienvenidos a **Huellitas**! Este es un sitio web e-commerce desarrollado como proyecto final, simulando una tienda real de productos para mascotas. El objetivo fue crear una aplicación web dinámica, responsiva y funcional utilizando tecnologías Front-End.
-Una descripción breve de lo que hace mi proyecto.
+Bienvenidos a **Huellitas**! Lo que comenzó como un proyecto de curso se transformó en una aplicación web completa. En este e-commerce dinámico cuenta con una arquitectura moderna donde el Front-End consume datos de una **API propia** conectada a una base de datos relacional.
 
-🚀 [Ver Demo en Vivo](https://petshophuellitass.netlify.app/)
----
-
-## 📋 Consignas y Requisitos Cumplidos
-
-El proyecto cumple con los siguientes requisitos académicos:
-
-### 1. Estructura HTML Semántica
-* Uso correcto de etiquetas semánticas (`<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`) para organizar el contenido.
-* Inclusión de contenido multimedia (imágenes y logos).
-
-### 2. Estilos CSS y Diseño Responsivo
-* **Hoja de estilos externa:** Archivo `style.css` vinculado.
-* **Flexbox:** Utilizado para la grilla de productos y la navegación.
-* **CSS Grid:** Implementado en la sección de **"Reseñas de Clientes"**.
-* **Responsive Design:** El sitio se adapta a dispositivos móviles, tablets y escritorio mediante Media Queries.
-* **Tipografía:** Integración de fuentes externas mediante **Google Fonts**.
-
-### 3. JavaScript e Interacción
-* **Carga de Datos (JSON):** Los productos se obtienen dinámicamente leyendo un archivo local (`productos.json`) mediante Javascript asíncrono (`fetch`).
-* **DOM:** Renderizado dinámico de tarjetas de productos y reseñas.
-* **Lógica de Carrito:** Funcionalidad completa para agregar, eliminar y vaciar el carrito, con cálculo de totales.
-* **Persistencia:** Uso de **LocalStorage** para mantener el carrito y las reseñas guardadas aunque se recargue la página.
-
-### 4. Funcionalidades Extra
-* **Formulario de Contacto:** Funcional y conectado con servicio de envío de emails (**Formspree**).
-* **Alertas:** Implementación de la librería **SweetAlert2** para notificaciones visuales (agregar al carrito, compra exitosa).
-* **Carrusel de Reseñas:** Sección interactiva donde los usuarios pueden dejar comentarios que se visualizan en tiempo real.
+**[Ver Demo en Vivo](https://dominguezmicaela.github.io/petshopHuellitas/)**
 
 ---
 
-## 🚀 Tecnologías Utilizadas
+##  Arquitectura y Tecnologías
 
-* ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
-* ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+El proyecto ha sido reestructurado para funcionar con una arquitectura de tres capas:
+
+### 1. Backend (API REST)
+* **Framework:** Desarrollado con **.NET 9 /C#**.
+* **Arquitectura:** Controladores y servicios para la gestión de productos
+* **Hosting:** Desplegado en **Render**.
+
+### 2. Base de Datos
+* **Motor:** **PostgreSQL**.
+* **Cloud:** Alojada en **Neon**, permitiendo persistencia de datos 
+
+### 3. Frontend
+* **Tecnologías:** HTML5, CSS3 (Flexbox/Grid) y **JavaScript **
+* **Consumo de API:** Integración mediante `fetch` asíncrono a la API en la nube
+* **Persistencia Local:** Uso de **LocalStorage** para la gestión del carrito de compras
+* **Hosting:** Desplegado en **GitHub Pages**.
+
+---
+
+## Funcionalidades Destacadas
+
+* **Catálogo Dinámico:** Los productos se cargan en tiempo real desde la base de datos
+* **Carrito de Compras:** Funcionalidad completa, se puede agregar, eliminar o vaciar el carrito
+* **Diseño Responsive:**  apto para celular, tabley y escritorio
+* **Interacción:** Notificaciones visuales con **SweetAlert2** y formularios conectados con **Formspree**.
+
+---
+##  Metodología de Desarrollo
+
+Para este proyecto aplique una metodología de desarrollo ágil y moderna:
+* **AI-Assisted Development:** Use herramientas de **Inteligencia Artificial** para la optimización de algoritmos, corrección de errores en tiempo real y sugerencias de mejores prácticas en la arquitectura del Backend y Frontend.
+* **Control de Versiones:** Git y GitHub para el seguimiento de cambios y despliegue 
+* 
+##  Stack 
+
+* ![C#](https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=csharp&logoColor=white)
+* ![.Net](https://img.shields.io/badge/.NET-5C2D91?style=for-the-badge&logo=.net&logoColor=white)
+* ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
 * ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
-* **SweetAlert2** (Librería de alertas)
+* ![GitHub Pages](https://img.shields.io/badge/github%20pages-121013?style=for-the-badge&logo=github&logoColor=white)
+
 ---
-*Proyecto realizado para el curso de Desarrollo Web Front-End por Micaela Dominguez*
+## Mejoras
+Se tienen en cuenta aspectos de mejora progresiva.
+
+*Proyecto realizado por Micaela Belen Dominguez. *
