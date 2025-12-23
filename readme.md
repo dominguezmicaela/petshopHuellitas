@@ -42,7 +42,7 @@ El proyecto ha sido reestructurado para funcionar con una arquitectura de tres c
 Para este proyecto aplique una metodología de desarrollo ágil y moderna:
 * **AI-Assisted Development:** Use herramientas de **Inteligencia Artificial** para la optimización de algoritmos, corrección de errores en tiempo real y sugerencias de mejores prácticas en la arquitectura del Backend y Frontend.
 * **Control de Versiones:** Git y GitHub para el seguimiento de cambios y despliegue 
-* 
+* **Documentacion**
 ##  Stack 
 
 * ![C#](https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=csharp&logoColor=white)
