@@ -1,4 +1,4 @@
-namespace Huellitas.Core.DTOs
+namespace Huellitas.Core.DTO
 {
     public class ProductoDto
     {

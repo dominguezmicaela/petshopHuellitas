@@ -1,6 +1,6 @@
 using System. ComponentModel.DataAnnotations;
 using System.Runtime.CompilerServices;
-namespace Huellitas.Core
+namespace Huellitas.Core.DTO
 {
     public  class ProductoCreacionDTO
     {

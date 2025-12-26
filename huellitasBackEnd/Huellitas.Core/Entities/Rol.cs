@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-namespace Huellitas.Core
+namespace Huellitas.Core.Entities
 {
     [Table("Rol")]
     public class Rol

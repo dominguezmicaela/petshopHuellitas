@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Common;
 
 
-namespace Huellitas.Core{
+namespace Huellitas.Core.Entities{
 
     [Table("producto")]
 

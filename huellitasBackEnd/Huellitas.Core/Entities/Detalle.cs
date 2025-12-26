@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace Huellitas.Core
+namespace Huellitas.Core.Entities
 {
     [Table("Detalle")]
     public class Detalle

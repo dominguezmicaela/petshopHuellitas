@@ -3,7 +3,10 @@ using Huellitas.Data;
 using Huellitas.Core;     
 using Microsoft.EntityFrameworkCore;
 using System.IO.Compression;
-
+using Huellitas.Core.Entities;
+using Huellitas.Core.Interfaces;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 namespace Huellitas.Api.Controllers
 {
     [Route("api/[controller]")] // Define que la url será /api/productos
