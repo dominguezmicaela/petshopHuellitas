@@ -1,5 +1,9 @@
 using Huellitas.Data;
 using Microsoft.EntityFrameworkCore;
+using Huellitas.Core.Interfaces;
+using Huellitas.Service;
+using Huellitas.Service.Interfaces;
+using Huellitas.Data.Repositorios;
 
 var builder=WebApplication.CreateBuilder(args);
 
@@ -22,6 +26,9 @@ builder.Services.AddCors(options =>
                   .AllowAnyMethod();
         });
 });
+
+builder.Services.AddScoped<IProductoRepositorio, ProductoRepositorio>();
+builder.Services.AddScoped<IProductoService, ProductoService>();
 
 //construccion
  var app=builder.Build();

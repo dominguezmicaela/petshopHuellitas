@@ -8,5 +8,7 @@ namespace Huellitas.Service.Interfaces
         Task<IEnumerable<Producto>> ObtenerProductosAsync();
         Task<Producto?> ObtenerProductoPorIdAsync(int id);
         Task<Producto> CrearProductoAsync(Producto producto);
+        Task<Producto> ActualizarProductoAsync(int id, Producto producto);
+        Task<bool>EliminarProductoAsync(int id);
     }
 }

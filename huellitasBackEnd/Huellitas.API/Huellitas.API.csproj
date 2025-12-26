@@ -18,6 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Huellitas.Data\Huellitas.Data.csproj" />
     <ProjectReference Include="..\Huellitas.Core\Huellitas.Core.csproj" />
+    <ProjectReference Include="..\Huellitas.Service\Huellitas.Service.csproj" />
   </ItemGroup>
 
 </Project>
