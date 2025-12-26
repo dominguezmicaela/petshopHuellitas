@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Huellitas.Data", "Huellitas
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Huellitas.API", "Huellitas.API\Huellitas.API.csproj", "{D07AED95-8D81-4846-ADB7-D3CB67B66FBB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Huellitas.Service", "Huellitas.Service\Huellitas.Service.csproj", "{ABC4DA66-0F0C-4248-951C-27AD5848808C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,18 @@ Global
 		{D07AED95-8D81-4846-ADB7-D3CB67B66FBB}.Release|x64.Build.0 = Release|Any CPU
 		{D07AED95-8D81-4846-ADB7-D3CB67B66FBB}.Release|x86.ActiveCfg = Release|Any CPU
 		{D07AED95-8D81-4846-ADB7-D3CB67B66FBB}.Release|x86.Build.0 = Release|Any CPU
+		{ABC4DA66-0F0C-4248-951C-27AD5848808C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABC4DA66-0F0C-4248-951C-27AD5848808C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABC4DA66-0F0C-4248-951C-27AD5848808C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{ABC4DA66-0F0C-4248-951C-27AD5848808C}.Debug|x64.Build.0 = Debug|Any CPU
+		{ABC4DA66-0F0C-4248-951C-27AD5848808C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{ABC4DA66-0F0C-4248-951C-27AD5848808C}.Debug|x86.Build.0 = Debug|Any CPU
+		{ABC4DA66-0F0C-4248-951C-27AD5848808C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABC4DA66-0F0C-4248-951C-27AD5848808C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABC4DA66-0F0C-4248-951C-27AD5848808C}.Release|x64.ActiveCfg = Release|Any CPU
+		{ABC4DA66-0F0C-4248-951C-27AD5848808C}.Release|x64.Build.0 = Release|Any CPU
+		{ABC4DA66-0F0C-4248-951C-27AD5848808C}.Release|x86.ActiveCfg = Release|Any CPU
+		{ABC4DA66-0F0C-4248-951C-27AD5848808C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
