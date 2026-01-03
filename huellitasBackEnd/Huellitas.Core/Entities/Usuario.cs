@@ -14,6 +14,9 @@ namespace Huellitas.Core.Entities
         public string nombre{get;set;}=string.Empty;
         [Required]
         [MaxLength(100)]
+        public string apellido{get;set;}=string.Empty;
+        [Required]
+        [MaxLength(100)]
         [EmailAddress]
         public string email{get;set;}=string.Empty;
         [Required]
