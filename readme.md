@@ -53,8 +53,9 @@ El proyecto ha sido reestructurado para funcionar con una arquitectura de tres c
 * **Documentación API:** endpoints documentados y probados mediante **Swagger UI**
 ---
 ## Roadmap (integracion de data science y IA)
-* **[En progreso]** (smart data seeding ) desarrollo de un generador de datos sinteticos con la finalidad de simular patrones de comportamiento de conpra. Por ejemplo, perfiles de usuarios, clusters de productos etc) en lugar de usar datos aleatorios puros.
-* **[Futuro]** motor de recomendaciones: implementacion de un modelo de Machine Learning, con reglas de asociacion previas para poder sugerir productos complementarios (Las personas que compraron X producto tambien llevaron Y producto)
+* **[Completado]  Smart Data Pipeline:** Desarrollo de scripts en Python para la limpieza y carga inteligente de productos, categorizando automáticamente los ítems (Perros, Gatos, Aves, etc.) y asegurando la integridad referencial.
+* **[En progreso]  Motor de Recomendaciones:** Implementación de lógica de Machine Learning para sugerir productos complementarios (*"Quienes compraron esto, también llevaron..."*).
+* **[Futuro]  Dashboard de Analítica:** Visualización de tendencias de compra simuladas.
 ---
 
 ##  Metodología de Desarrollo
@@ -74,6 +75,9 @@ Para este proyecto aplique una metodología de desarrollo ágil y moderna:
 * ![Entity Framework](https://img.shields.io/badge/Entity%20Framework-512BD4?style=for-the-badge&logo=.net&logoColor=white)
 * ![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=Swagger&logoColor=black)
 
-
+## Aviso Legal
+Este proyecto fue desarrollado exclusivamente con **fines educativos y de aprendizaje**. 
+* **Imágenes y Datos:** Se han utilizado herramientas de automatización y web scraping para obtener un dataset de productos con fines de demostración técnica. Los derechos de las imágenes y marcas pertenecen a sus respectivos dueños.
+* **Propósito:** El objetivo es demostrar habilidades en arquitectura de software, gestión de bases de datos y desarrollo Full Stack, no habiendo fines comerciales involucrados.
 
 *Proyecto realizado por Micaela Belen Dominguez. *
