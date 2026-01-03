@@ -27,7 +27,8 @@ namespace Huellitas.Core.Entities{
         [ForeignKey("idCategoria")]
         public virtual Categoria Categoria{get;set;}=null!;
 
-      //los metdos pasan a service
+        public string descripcion { get; set; }=string.Empty;
+     
 
 
     }
