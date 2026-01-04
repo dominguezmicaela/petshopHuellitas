@@ -42,7 +42,7 @@ const renderizarCarrito = () => {
     //crear imagen
     const img = document.createElement("img");
     img.alt = producto.nombre;
-    img.src = `../${producto.img}`;
+    img.src = producto.img;
     img.classList.add("img-producto-carrito");
     // creo los controles
     const divContador = document.createElement("div");

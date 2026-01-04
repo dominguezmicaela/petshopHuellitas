@@ -35,10 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const precio = document.createElement("p");
         precio.textContent = `$${producto.precio}`;
 
-        const stockInfo = document.createElement("p");
-        stockInfo.classList.add("stock-info");
-        stockInfo.textContent = `Stock disponible: ${producto.stock}`;
-
         const boton = document.createElement("button");
         boton.classList.add("btn");
 
