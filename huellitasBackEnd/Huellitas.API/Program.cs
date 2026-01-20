@@ -8,6 +8,7 @@ using Huellitas.Core.Interfaces;
 using Huellitas.Service;
 using Huellitas.Service.Interfaces;
 using Huellitas.Data.Repositorios;
+using huellitas.Service;
 
 var builder=WebApplication.CreateBuilder(args);
 //CONFIGURACION DE JWT
@@ -45,6 +46,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
 // conexion a la bdd
 builder.Services.AddDbContext<HuellitasContext>(options =>
 options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -62,6 +64,8 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddScoped<IProductoRepositorio, ProductoRepositorio>();
 builder.Services.AddScoped<IProductoService, ProductoService>();
+builder.Services.AddScoped<IUsuarioRepositorio,UsuarioRepositorio>();
+builder.Services.AddScoped<IAuthService,AuthService>();
 
 //construccion
  var app=builder.Build();
