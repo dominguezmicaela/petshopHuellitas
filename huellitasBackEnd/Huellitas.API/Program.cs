@@ -1,3 +1,7 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Huellitas.Core.Entities;
 using Huellitas.Data;
 using Microsoft.EntityFrameworkCore;
 using Huellitas.Core.Interfaces;
@@ -6,6 +10,35 @@ using Huellitas.Service.Interfaces;
 using Huellitas.Data.Repositorios;
 
 var builder=WebApplication.CreateBuilder(args);
+//CONFIGURACION DE JWT
+var jwtSettings = builder.Configuration.GetSection("Jwt");
+var secretKey = jwtSettings["Key"];
+if (string.IsNullOrEmpty(secretKey))
+{
+    
+    throw new Exception("¡ERROR FATAL! No se encontró la propiedad 'Key' dentro de la sección 'Jwt' en appsettings.json. Revisa tu archivo de configuración.");
+}
+
+var key = Encoding.ASCII.GetBytes(secretKey);
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(key),
+        ValidateIssuer = true,
+        ValidIssuer = jwtSettings["Issuer"],
+        ValidateAudience = true,
+        ValidAudience = jwtSettings["Audience"],
+        ValidateLifetime = true
+    };
+});
 
 //zona de servicios 
 builder.Services.AddControllers();
@@ -44,8 +77,11 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 //activo politica cors
 app.UseCors("PermitirFrontend");
-//validacion de usuario mas adelante
+//verificacion de usuaerio
+app.UseAuthentication();
+//QUE PERMISOS TIENE
 app.UseAuthorization();
+
 
 // busco controladores y crea las rutas 
 app.MapControllers();
