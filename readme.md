@@ -32,8 +32,11 @@ El proyecto ha sido reestructurado íntegramente para funcionar bajo un esquema 
 * **Cloud:** alojada en **Neon**.
 * **Modelado:** diseño relacional normalizado para asegurar la consistencia.
 
+### ## Estructura de base de datos
+![Diagrama de Base de Datos](./docs/diagrams/huellitasdb.png)
+
 ### 3. Frontend (Migración a React)
-> ⚠️ **Estado del Frontend:** La interfaz ha sido migrada de HTML a **React**, mejorando la reactividad y la experiencia de usuario. Actualmente se encuentra en fase de integración dinámica con el Backend.
+> ⚠️ **Estado del Frontend:** La interfaz ha sido migrada de HTML estático a **React**, mejorando la reactividad y la experiencia de usuario. Actualmente se encuentra en fase de integración dinámica con el Backend.
 * **Tecnologías:** React, Vite, JavaScript (ES6+), CSS3 (Flexbox/Grid).
 * **Navegación:** Implementación de **React Router Dom** para la gestión de rutas y paneles administrativos.
 * **Persistencia Local:** Uso de **LocalStorage** para la gestión del carrito de compras.
@@ -56,12 +59,13 @@ El proyecto ha sido reestructurado íntegramente para funcionar bajo un esquema 
 * **[Completado] Smart Data Pipeline:** Desarrollo de scripts en Python para la limpieza y carga inteligente de productos, categorizando automáticamente los ítems.
 * **[En Progreso] Dashboard Dinámico para CRM:** Visualización de tendencias de compra y gestión analítica de los 580 usuarios dentro del panel de administración.
 * **[Futuro] Motor de Recomendaciones:** Implementación de lógica de **Machine Learning** para sugerir productos complementarios basados en el historial del usuario.
+* **[Futuro] Análisis Predictivo:** Dashboard de visualización avanzada para la predicción de demanda de stock.
 
 ---
 
 ## Metodología de Desarrollo
 
-* **AI-Assisted Development:** Uso de herramientas de **IA** para la optimización de algoritmos, refactorización de código.
+* **AI-Assisted Development:** Uso de herramientas de **IA** para la optimización de algoritmos, refactorización de código y sugerencias de arquitectura.
 * **Control de Versiones:** Flujo de trabajo basado en **Feature Branches** y adopción de **Conventional Commits** para un historial limpio y profesional.
 * **Documentación:** Mantenimiento constante de la documentación técnica del proyecto.
 
