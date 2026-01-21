@@ -8,7 +8,6 @@ import AdminPanel from "./pages/Admin/AdminPanel";
 function App() {
   const location = useLocation();
   const isAdminRoute = location.pathname.startsWith('/admin');
-  const baseUrl = import.meta.env.BASE_URL;
 
   return (
     <div className={`app-container ${isAdminRoute ? 'admin-route' : ''}`}>
@@ -16,7 +15,7 @@ function App() {
         <div className="div-log">
           <Link to="/">
            <img
-              src={`${baseUrl}img/LOGO.jpg`}
+              src={`${import.meta.env.BASE_URL}img/LOGO.jpg`}
               className="logo-circular"
               alt="Logo de Huellitas"
               width="120"
@@ -27,7 +26,7 @@ function App() {
         <nav className="menu-navegacion">
          <Link to="/" className="mi-boton">
             <img 
-              src={`${baseUrl}img/INICIO.png`} 
+              src={`${import.meta.env.BASE_URL}img/INICIO.png`}
               className="icono-img" 
               alt="Inicio" 
             />
@@ -35,12 +34,12 @@ function App() {
           </Link>
 
           <Link to="/contacto" className="mi-boton">
-            <img src={`${baseUrl}img/CONTACTO.png`} className="icono-img" alt="Contacto" />
+            <img src={`${import.meta.env.BASE_URL}img/CONTACTO.png`} className="icono-img" alt="Contacto" />
             Contacto
           </Link>
 
           <Link to="/carrito" className="mi-boton">
-            <img src={`${baseUrl}img/CARRITO.png`} className="icono-img" alt="Carrito" />
+            <img src={`${import.meta.env.BASE_URL}img/CARRITO.png`} className="icono-img" alt="Carrito" />
             Carrito
           </Link>
 
