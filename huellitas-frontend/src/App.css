@@ -1,3 +1,50 @@
+/* === CORRECCIONES DE EMERGENCIA === */
+
+/* 1. Para que el logo no se vea gigante si falla la imagen */
+.logo-circular {
+  display: block;
+  max-width: 120px; /* Tamaño fijo */
+  height: auto;
+}
+
+/* 2. Acomodar el menú y que no se amontone */
+header {
+  display: flex;
+  justify-content: space-between; /* Logo a la izq, menú a la der */
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f2efe9; /* Tu color beige */
+}
+
+.menu-navegacion {
+  display: flex;
+  gap: 15px; /* Espacio entre botones */
+  align-items: center;
+}
+
+/* 3. Arreglar el Footer (Letras invisibles) */
+.pie-pagina {
+  background-color: #8d7958; /* Fondo marrón para que se lea el blanco */
+  color: white; /* Letras blancas */
+  text-align: center;
+  padding: 20px;
+  margin-top: 50px;
+}
+
+.redes-sociales {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.redes-sociales span, 
+.redes-sociales a {
+  color: white; /* Asegurar que se vean los links */
+  font-weight: bold;
+}
+
+
 * {
   margin: 0;
   padding: 0;
