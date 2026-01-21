@@ -8,14 +8,15 @@ import AdminPanel from "./pages/Admin/AdminPanel";
 function App() {
   const location = useLocation();
   const isAdminRoute = location.pathname.startsWith('/admin');
+  const baseUrl = import.meta.env.BASE_URL;
 
   return (
     <div className={`app-container ${isAdminRoute ? 'admin-route' : ''}`}>
       <header>
         <div className="div-log">
           <Link to="/">
-            <img
-              src="/img/LOGO.jpg"
+           <img
+              src={`${baseUrl}img/LOGO.jpg`}
               className="logo-circular"
               alt="Logo de Huellitas"
               width="120"
@@ -24,18 +25,22 @@ function App() {
         </div>
 
         <nav className="menu-navegacion">
-          <Link to="/" className="mi-boton">
-            <img src="/img/INICIO.png" className="icono-img" alt="Inicio" />
+         <Link to="/" className="mi-boton">
+            <img 
+              src={`${baseUrl}img/INICIO.png`} 
+              className="icono-img" 
+              alt="Inicio" 
+            />
             Inicio
           </Link>
 
           <Link to="/contacto" className="mi-boton">
-            <img src="/img/CONTACTO.png" className="icono-img" alt="Contacto" />
+            <img src={`${baseUrl}img/CONTACTO.png`} className="icono-img" alt="Contacto" />
             Contacto
           </Link>
 
           <Link to="/carrito" className="mi-boton">
-            <img src="/img/CARRITO.png" className="icono-img" alt="Carrito" />
+            <img src={`${baseUrl}img/CARRITO.png`} className="icono-img" alt="Carrito" />
             Carrito
           </Link>
 
