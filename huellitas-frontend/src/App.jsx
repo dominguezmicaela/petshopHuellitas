@@ -43,6 +43,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Inicio />} />
         <Route path="/contacto" element={<Contacto />} />
+        <Route path="/carrito" element={<div>Página de Carrito</div>} />
+        <Route path="/login" element={<div>Página de Login</div>} />
       </Routes>
 
       <footer className="pie-pagina">
