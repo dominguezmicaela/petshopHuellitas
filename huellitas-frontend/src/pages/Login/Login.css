@@ -1,0 +1,606 @@
+/* CONTENEDOR PRINCIPAL LOGIN */
+.login-container {
+  width: 100%;
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efecto de fondo decorativo */
+.login-container::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  left: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(237, 224, 212, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+  animation: float 8s ease-in-out infinite;
+}
+
+.login-container::after {
+  content: '';
+  position: absolute;
+  bottom: -200px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(235, 218, 199, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+  animation: float 8s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(50px, 50px) scale(1.1);
+  }
+}
+
+/* TARJETA DE LOGIN HORIZONTAL */
+.login-card {
+  background: linear-gradient(135deg, rgba(235, 218, 199, 0.98) 0%, rgba(245, 237, 224, 0.95) 100%);
+  backdrop-filter: blur(30px);
+  border-radius: 32px;
+  width: 100%;
+  max-width: 1000px;
+  box-shadow: 
+    0 30px 80px rgba(0, 0, 0, 0.25),
+    0 12px 32px rgba(0, 0, 0, 0.15),
+    inset 0 1px 3px rgba(255, 255, 255, 0.7);
+  border: 3px solid rgba(255, 255, 255, 0.5);
+  position: relative;
+  z-index: 1;
+  animation: slideUp 0.6s ease-out;
+  display: grid;
+  grid-template-columns: 45% 55%;
+  overflow: hidden;
+  min-height: 550px;
+}
+
+/* MODO REGISTRO - Invierte las columnas */
+.login-card.register-mode {
+  grid-template-columns: 55% 45%;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* LADO IZQUIERDO - DECORATIVO */
+.login-left {
+  background: linear-gradient(135deg, #557c55 0%, #4a6348 100%);
+  padding: 5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Cuando está en modo registro, el panel se mueve a la derecha */
+.login-card.register-mode .login-left {
+  order: 2;
+}
+
+/* Patrón decorativo */
+.login-left::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 30px 30px;
+  pointer-events: none;
+}
+
+.login-left::after {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.login-logo {
+  width: 120px;
+  height: 120px;
+  background: rgba(235, 218, 199, 0.2);
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  animation: pulse 2s ease-in-out infinite;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.login-left-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 1.5rem;
+  letter-spacing: -1px;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
+}
+
+.login-left-subtitle {
+  font-size: 1.7rem;
+  color: rgba(235, 218, 199, 0.9);
+  font-weight: 500;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+/* LADO DERECHO - FORMULARIO */
+.login-right {
+  padding: 5rem 4.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  position: relative;
+}
+
+/* Cuando está en modo registro, el formulario se mueve a la izquierda */
+.login-card.register-mode .login-right {
+  order: 1;
+}
+
+/* Contenedor de transición para los formularios */
+.login-forms-container {
+  position: relative;
+  width: 100%;
+}
+
+.login-form-wrapper,
+.register-form-wrapper {
+  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Estado inicial: Login visible, Registro oculto */
+.login-form-wrapper {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  pointer-events: auto;
+}
+
+.register-form-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transform: translateX(50px) scale(0.95);
+  pointer-events: none;
+}
+
+/* Modo registro: Registro visible, Login oculto */
+.login-card.register-mode .login-form-wrapper {
+  opacity: 0;
+  transform: translateX(-50px) scale(0.95);
+  pointer-events: none;
+}
+
+.login-card.register-mode .register-form-wrapper {
+  position: relative;
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  pointer-events: auto;
+}
+
+/* HEADER DEL FORMULARIO */
+.login-header {
+  text-align: left;
+  margin-bottom: 3.5rem;
+}
+
+.login-title {
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: #3d5240;
+  margin-bottom: 1rem;
+  letter-spacing: -1px;
+}
+
+.login-subtitle {
+  font-size: 1.6rem;
+  color: #6b7d68;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* FORMULARIO */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2.2rem;
+}
+
+/* GRUPO DE CAMPO */
+.login-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+}
+
+/* Grid para campos de dos columnas (nombre y apellido) */
+.login-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+/* LABEL */
+.login-label {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #3d5240;
+  letter-spacing: -0.3px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.login-label-icon {
+  font-size: 1.8rem;
+}
+
+/* INPUT WRAPPER CON ICONO */
+.login-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.login-input-icon {
+  position: absolute;
+  left: 2rem;
+  font-size: 2rem;
+  color: #6b7d68;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+/* INPUT */
+.login-input {
+  width: 100%;
+  padding: 1.6rem 2rem 1.6rem 5.5rem;
+  font-size: 1.6rem;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  color: #2f4858;
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid rgba(85, 124, 85, 0.2);
+  border-radius: 14px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.05),
+    inset 0 1px 3px rgba(255, 255, 255, 0.9);
+}
+
+.login-input::placeholder {
+  color: rgba(47, 72, 88, 0.4);
+  font-weight: 500;
+}
+
+.login-input:focus {
+  outline: none;
+  border-color: #557c55;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 
+    0 6px 20px rgba(85, 124, 85, 0.15),
+    0 0 0 5px rgba(85, 124, 85, 0.08),
+    inset 0 1px 3px rgba(255, 255, 255, 1);
+  transform: translateY(-2px);
+}
+
+.login-input:focus + .login-input-icon {
+  color: #557c55;
+  transform: scale(1.1);
+}
+
+/* CHECKBOX "RECORDARME" */
+.login-remember {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: -0.5rem 0;
+}
+
+.login-checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #557c55;
+}
+
+.login-remember-label {
+  font-size: 1.4rem;
+  color: #6b7d68;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* BOTÓN DE SUBMIT */
+.login-submit {
+  width: 100%;
+  padding: 1.8rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: white;
+  background: linear-gradient(135deg, #557c55 0%, #4a6348 100%);
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 8px 28px rgba(85, 124, 85, 0.35),
+    0 4px 12px rgba(85, 124, 85, 0.2),
+    inset 0 1px 3px rgba(255, 255, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.5px;
+  margin-top: 0.5rem;
+}
+
+/* Efecto de brillo en el botón */
+.login-submit::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.6s ease;
+}
+
+.login-submit:hover::before {
+  left: 100%;
+}
+
+.login-submit:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 14px 44px rgba(85, 124, 85, 0.45),
+    0 6px 18px rgba(85, 124, 85, 0.3),
+    inset 0 1px 4px rgba(255, 255, 255, 0.4);
+}
+
+.login-submit:active {
+  transform: translateY(-1px);
+}
+
+/* LOADING STATE */
+.login-submit.loading {
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.login-submit.loading::after {
+  content: '';
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: translateY(-50%) rotate(360deg); }
+}
+
+/* DIVIDER */
+.login-divider {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.login-divider::before,
+.login-divider::after {
+  content: '';
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(85, 124, 85, 0.25), transparent);
+}
+
+.login-divider span {
+  font-size: 1.4rem;
+  color: #6b7d68;
+  font-weight: 600;
+}
+
+/* LINKS ADICIONALES */
+.login-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid rgba(85, 124, 85, 0.1);
+}
+
+.login-link {
+  font-size: 1.4rem;
+  color: #557c55;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  font-family: inherit;
+}
+
+.login-link:hover {
+  background: rgba(85, 124, 85, 0.1);
+  transform: translateY(-2px);
+}
+
+/* MENSAJE DE ERROR/ÉXITO */
+.login-message {
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  animation: slideDown 0.4s ease;
+  margin-bottom: 1rem;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.login-message.success {
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.18) 0%, rgba(76, 175, 80, 0.12) 100%);
+  color: #2e7d32;
+  border: 2px solid rgba(76, 175, 80, 0.35);
+}
+
+.login-message.error {
+  background: linear-gradient(135deg, rgba(244, 67, 54, 0.18) 0%, rgba(244, 67, 54, 0.12) 100%);
+  color: #c62828;
+  border: 2px solid rgba(244, 67, 54, 0.35);
+}
+
+/* TOGGLE PASSWORD */
+.login-toggle-password {
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: #6b7d68;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.login-toggle-password:hover {
+  color: #557c55;
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* RESPONSIVE */
+@media (max-width: 968px) {
+  .login-card,
+  .login-card.register-mode {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+  }
+
+  .login-left {
+    display: none;
+  }
+
+  .login-card.register-mode .login-left {
+    order: initial;
+  }
+
+  .login-card.register-mode .login-right {
+    order: initial;
+  }
+
+  .login-right {
+    padding: 4rem 3rem;
+  }
+
+  .login-header {
+    text-align: center;
+  }
+
+  .login-form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .login-right {
+    padding: 3rem 2.5rem;
+  }
+
+  .login-title {
+    font-size: 2.8rem;
+  }
+
+  .login-input {
+    padding: 1.5rem 2rem 1.5rem 5rem;
+  }
+
+  .login-submit {
+    padding: 1.6rem;
+    font-size: 1.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    padding: 2rem 1.5rem;
+  }
+
+  .login-right {
+    padding: 3rem 2rem;
+  }
+
+  .login-links {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}

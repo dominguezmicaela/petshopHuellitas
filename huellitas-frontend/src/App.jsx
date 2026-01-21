@@ -1,12 +1,16 @@
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, useLocation } from "react-router-dom";
 import "./App.css";
-import { Contacto } from "./pages/Contacto";
-import { Inicio } from "./pages/Inicio";
-import { Login } from "./pages/Login";
+import { Contacto } from "./pages/Contact/Contacto";
+import { Inicio } from "./pages/Home/Inicio";
+import { Login } from "./pages/Login/Login";
+import AdminPanel from "./pages/Admin/AdminPanel";
 
 function App() {
+  const location = useLocation();
+  const isAdminRoute = location.pathname.startsWith('/admin');
+
   return (
-    <div className="app-container">
+    <div className={`app-container ${isAdminRoute ? 'admin-route' : ''}`}>
       <header>
         <div className="div-log">
           <Link to="/">
@@ -45,8 +49,10 @@ function App() {
         <Route path="/" element={<Inicio />} />
         <Route path="/contacto" element={<Contacto />} />
         <Route path="/carrito" element={<div>Página de Carrito</div>} />
-       <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/admin" element={<AdminPanel/>}/>
       </Routes>
+
       <footer className="pie-pagina">
         <p className="autor">Sitio realizado por Micaela</p>
         <nav className="redes-sociales">
