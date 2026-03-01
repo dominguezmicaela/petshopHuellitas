@@ -8,10 +8,10 @@ import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <HashRouter>
       <CarritoProvider>
         <App />
       </CarritoProvider>
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>
 );
