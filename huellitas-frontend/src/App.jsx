@@ -1,70 +1,31 @@
-import { Routes, Route, Link, useLocation } from "react-router-dom";
-import "./App.css";
-import { Contacto } from "./pages/Contact/Contacto";
-import { Inicio } from "./pages/Home/Inicio";
-import { Login } from "./pages/Login/Login";
+import { Routes, Route, useLocation } from "react-router-dom";
+import  Header  from "./components/Header";
+import  Footer  from "./components/Footer";
+import  Inicio from "./pages/Home/Inicio";
+import  Contacto  from "./pages/Contact/Contacto";
+import  Login  from "./pages/Login/Login";
 import AdminPanel from "./pages/Admin/AdminPanel";
+import Carrito from "./pages/Cart/Carrito";
 
 function App() {
   const location = useLocation();
-  const isAdminRoute = location.pathname.startsWith('/admin');
+  const isAdmin = location.pathname.startsWith("/admin");
 
   return (
-    <div className={`app-container ${isAdminRoute ? 'admin-route' : ''}`}>
-      <header>
-        <div className="div-log">
-          <Link to="/">
-           <img
-              src="img/LOGO.jpg"
-              className="logo-circular"
-              alt="Logo de Huellitas"
-              width="120"
-            />
-          </Link>
-        </div>
+    <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh", background: "#f5ede0" }}>
+      {!isAdmin && <Header />}
 
-        <nav className="menu-navegacion">
-         <Link to="/" className="mi-boton">
-            <img 
-              src="img/INICIO.png"
-              className="icono-img" 
-              alt="Inicio" 
-            />
-            Inicio
-          </Link>
+      <main style={{ flex: 1, width: "100%" }}>
+        <Routes>
+          <Route path="/" element={<Inicio />} />
+          <Route path="/contacto" element={<Contacto />} />
+          <Route path="/carrito" element={<Carrito />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/admin" element={<AdminPanel />} />
+        </Routes>
+      </main>
 
-          <Link to="/contacto" className="mi-boton">
-            <img src="img/CONTACTO.png" className="icono-img" alt="Contacto" />
-            Contacto
-          </Link>
-
-          <Link to="/carrito" className="mi-boton">
-            <img src="img/CARRITO.png" className="icono-img" alt="Carrito" />
-            Carrito
-          </Link>
-
-          <Link to="/login" className="mi-boton">
-            👤 Iniciar Sesión
-          </Link>
-        </nav>
-      </header>
-
-      <Routes>
-        <Route path="/" element={<Inicio />} />
-        <Route path="/contacto" element={<Contacto />} />
-        <Route path="/carrito" element={<div>Página de Carrito</div>} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/admin" element={<AdminPanel/>}/>
-      </Routes>
-
-      <footer className="pie-pagina">
-        <p className="autor">Sitio realizado por Micaela</p>
-        <nav className="redes-sociales">
-          <span style={{ marginRight: "10px" }}>Instagram</span>
-          <span style={{ marginRight: "10px" }}>Facebook</span>
-          <span>WhatsApp</span>
-        </nav>
-      </footer>
+      {!isAdmin && <Footer />}
     </div>
   );
 }
