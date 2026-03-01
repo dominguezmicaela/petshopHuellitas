@@ -7,7 +7,7 @@ export const useProductos = () => {
   useEffect(() => {
     const obtenerProductos = async () => {
       try {
-        const respuesta = await fetch('http://localhost:5055/api/Productos');
+        const respuesta = await fetch('https://petshophuellitas.onrender.com/api/Productos');
         const datos = await respuesta.json();
         setProductos(datos);
         setCargando(false);
