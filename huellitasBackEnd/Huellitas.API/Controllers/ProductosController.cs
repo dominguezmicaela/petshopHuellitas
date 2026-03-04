@@ -21,14 +21,20 @@ namespace Huellitas.Api.Controllers
         {
             _productoService= productoService;
         }
-
-        //Obtener todos
-
+        
+         // Obtener todos (paginado)
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Producto>>> GetProductos()
+        public async Task<ActionResult> GetProductos([FromQuery] int page = 1, [FromQuery] int limit = 12)
         {
-            var productos=await _productoService.ObtenerProductosAsync();
-            return Ok(productos);
+            var (productos, total) = await _productoService.ObtenerProductosPaginadoAsync(page, limit);
+            return Ok(new
+            {
+                productos,
+                total,
+                page,
+                limit,
+                totalPaginas = (int)Math.Ceiling((double)total / limit)
+            });
         }
 
         //obtener uno solo 
