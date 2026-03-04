@@ -1,8 +1,7 @@
-// pages/Login/Login.jsx
 import { useState } from "react";
 import LoginForm from "../../components/Login/LoginForm";
 import RegisterForm from "../../components/Login/RegisterForm";
-import DecorativePanel from "../../components/Login/DecorativePanel";
+import { Logo } from "../../components/icono";
 
 export const Login = () => {
   const [isRegisterMode, setIsRegisterMode] = useState(false);
@@ -10,50 +9,113 @@ export const Login = () => {
   return (
     <div style={{
       width: "100%",
-      minHeight: "80vh",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      padding: "1.5rem 1.5rem",
-      background: "linear-gradient(135deg, #f5ede0 0%, #faf5ee 100%)",
+      minHeight: "calc(100vh - 72px)",
+      display: "grid",
+      gridTemplateColumns: "1fr 1fr",
       fontFamily: "'Plus Jakarta Sans', sans-serif",
     }}>
+
+      {/* ── PANEL VERDE ── */}
       <div style={{
-        width: "100%",
-        maxWidth: "900px",
-        borderRadius: "28px",
+        order: isRegisterMode ? 2 : 1,
+        position: "relative",
+        background: "linear-gradient(135deg, #2d5140 0%, #3d6b4f 60%, #4a7d5e 100%)",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        textAlign: "center",
+        padding: "4rem 3rem",
         overflow: "hidden",
-        boxShadow: "0 24px 64px rgba(0,0,0,0.12), 0 4px 16px rgba(0,0,0,0.06)",
-        border: "1.5px solid rgba(255,255,255,0.6)",
-        /* ✅ Fix: altura fija para que ambos paneles sean siempre del mismo tamaño */
-        display: "grid",
-        gridTemplateColumns: "1fr 1fr",
-        height: "620px",  /* altura fija — ambos paneles siempre iguales */
+        transition: "order 0.4s ease",
       }}>
 
-        {/* Panel decorativo — siempre a la izquierda en login, derecha en register */}
-        <div style={{ order: isRegisterMode ? 2 : 1 }}>
-          <DecorativePanel isRegisterMode={isRegisterMode} />
-        </div>
-
-        {/* Panel formulario — siempre al lado opuesto */}
+        {/* Dot pattern */}
         <div style={{
-          order: isRegisterMode ? 1 : 2,
-          padding: "3rem 2.5rem",
-          background: "linear-gradient(135deg, rgba(242,233,220,0.98), rgba(250,245,238,0.95))",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          overflowY: "auto",     /* scroll interno si el contenido es muy largo */
-          maxHeight: "620px",
+          position: "absolute", inset: 0, pointerEvents: "none",
+          backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
+        }}/>
+
+        {/* Glow top right */}
+        <div style={{
+          position: "absolute", top: "-100px", right: "-100px",
+          width: "320px", height: "320px", borderRadius: "50%", pointerEvents: "none",
+          background: "radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%)",
+        }}/>
+
+        {/* Glow bottom left */}
+        <div style={{
+          position: "absolute", bottom: "-80px", left: "-80px",
+          width: "260px", height: "260px", borderRadius: "50%", pointerEvents: "none",
+          background: "radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%)",
+        }}/>
+
+        {/* Huellitas watermark grande */}
+        <div style={{
+          position: "absolute", bottom: "-40px", right: "-40px",
+          opacity: 0.06, pointerEvents: "none", transform: "rotate(-15deg)",
         }}>
-          {isRegisterMode
-            ? <RegisterForm onGoLogin={() => setIsRegisterMode(false)} />
-            : <LoginForm    onGoRegister={() => setIsRegisterMode(true)} />
-          }
+          <Logo size={280}/>
         </div>
 
+        <div style={{ position: "relative", zIndex: 1 }}>
+          <div style={{ marginBottom: "2rem" }}>
+            <Logo size={90}/>
+          </div>
+
+          <h2 style={{
+            fontSize: "2.8rem", fontWeight: 800, color: "#fff",
+            letterSpacing: "-1.5px", marginBottom: "1.2rem", lineHeight: 1.15,
+          }}>
+            {isRegisterMode ? "¡Únete a\nHuellitas!" : "Bienvenido\nde vuelta"}
+          </h2>
+
+          <p style={{
+            fontSize: "1rem", color: "rgba(242,233,220,0.8)",
+            lineHeight: 1.75, maxWidth: "300px", margin: "0 auto 2.5rem",
+          }}>
+            {isRegisterMode
+              ? "Creá tu cuenta y empezá a cuidar mejor a tus mascotas"
+              : "Tu tienda de confianza para el cuidado y bienestar de tus mascotas"}
+          </p>
+
+          <button
+            onClick={() => isRegisterMode ? null : null}
+            style={{
+              padding: "0.8rem 2.5rem",
+              borderRadius: "50px",
+              border: "2px solid rgba(255,255,255,0.5)",
+              background: "rgba(255,255,255,0.1)",
+              color: "#fff",
+              fontWeight: 700,
+              fontSize: "0.9rem",
+              cursor: "default",
+              backdropFilter: "blur(8px)",
+              letterSpacing: "0.3px",
+            }}
+          >
+            {isRegisterMode ? "Registrándote..." : "Iniciando sesión..."}
+          </button>
+        </div>
       </div>
+
+      {/* ── PANEL FORMULARIO ── */}
+      <div style={{
+        order: isRegisterMode ? 1 : 2,
+        background: "linear-gradient(135deg, #f5ede0 0%, #faf5ee 100%)",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        padding: "4rem 5rem",
+        overflowY: "auto",
+      }}>
+        {isRegisterMode
+          ? <RegisterForm onGoLogin={() => setIsRegisterMode(false)} />
+          : <LoginForm onGoRegister={() => setIsRegisterMode(true)} />
+        }
+      </div>
+
     </div>
   );
 };

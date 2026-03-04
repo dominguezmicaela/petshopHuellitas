@@ -60,7 +60,7 @@ const ContactoForm = ({ formData, status, isLoading, handleChange, handleSubmit 
     overflow: "hidden",
   }}>
 
-    {/* Grid background estilo Aceternity — esquina superior derecha */}
+    {/* Grid background — esquina superior derecha */}
     <div style={{
       position: "absolute",
       top: 0, right: 0,

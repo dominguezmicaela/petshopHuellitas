@@ -41,7 +41,7 @@ export const Header = () => (
     height: "72px", width: "100%",
     background: "rgba(245,237,224,0.92)",
     backdropFilter: "blur(20px)",
-    borderBottom: "1px solid rgba(85,124,85,0.1)",
+    borderBottom: "2px solid #2d5140",
     display: "flex", alignItems: "center",
     justifyContent: "space-between",
     padding: "0 5%",
