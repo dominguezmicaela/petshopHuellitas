@@ -8,7 +8,7 @@ import Paginacion from "../../components/Paginacion";
 
 export const Inicio = () => {
  const { productos, cargando, pagina, setPagina, totalPaginas, total } = useProductos();
- 
+
   const {
     busqueda,
     setBusqueda,
@@ -252,7 +252,7 @@ export const Inicio = () => {
               }}
             >
               {productosOrdenados.map((producto) => (
-                <ProductCard key={producto.id} producto={producto} />
+                <ProductCard key={producto.idProducto} producto={producto} />
               ))}
             </div>
           ) : (

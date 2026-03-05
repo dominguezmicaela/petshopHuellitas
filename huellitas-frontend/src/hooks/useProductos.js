@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const API_URL = "http://localhost:5055/api/Productos";
+const API_URL = "https://petshophuellitas.onrender.com/api/Productos";
 const LIMIT = 12;
 
 export const useProductos = () => {
@@ -16,15 +16,17 @@ export const useProductos = () => {
       try {
         const response = await fetch(`${API_URL}?page=${pagina}&limit=${LIMIT}`);
         const data = await response.json();
+        console.log("DATOS RECIBIDOS:", data); // <--- Agregá esto
 
-        const items = data.productos || data.item1 || [];
-        const count = data.total || data.item2 || 0;
+        const items = data.productos || data.Productos || [];
+        const paginasDelServer = data.totalPaginas || data.TotalPaginas || 1;
+        const totalItems = data.total || data.Total || 0;
 
         setProductos(items);
-        setTotal(count);
-        setTotalPaginas(Math.ceil(count / LIMIT));
+        setTotal(totalItems);
+        setTotalPaginas(paginasDelServer);
       } catch (error) {
-        console.error("Fetch error:", error);
+        console.error("Error al obtener los productos:", error);
       } finally {
         setCargando(false);
       }
