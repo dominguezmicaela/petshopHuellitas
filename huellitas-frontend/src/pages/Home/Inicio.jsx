@@ -3,7 +3,7 @@ import { useProductos } from "../../hooks/useProductos";
 import ProductCard from "../../components/Producto/ProductCard";
 import Paginacion from "../../components/Paginacion";
 import { PawWatermark, IcoSearch, IcoFilter } from "../../components/icono";
-
+import ReseniasCarrusel from "../../components/Resenia/ReseniaCarrusel";
 const CATEGORIAS = [
   { key: "Alimentos",  emoji: "🥩" },
   { key: "Juguetes",   emoji: "🎾" },
@@ -235,8 +235,11 @@ export const Inicio = () => {
           {!cargando && (
             <Paginacion pagina={pagina} totalPaginas={totalPaginas} setPagina={setPagina} />
           )}
+
         </div>
       </div>
+       {/* Reseñas */}
+      <ReseniasCarrusel/>
     </div>
   );
 };
