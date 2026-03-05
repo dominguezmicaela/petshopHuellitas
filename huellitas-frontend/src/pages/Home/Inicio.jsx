@@ -4,17 +4,18 @@ import ProductCard from "../../components/Producto/ProductCard";
 import Paginacion from "../../components/Paginacion";
 import { PawWatermark, IcoSearch, IcoFilter } from "../../components/icono";
 import ReseniasCarrusel from "../../components/Resenia/ReseniaCarrusel";
+import FaqSeccion from "../../components/Faq/FaqSection"; 
 const CATEGORIAS = [
-  { key: "Alimentos",  emoji: "🥩" },
-  { key: "Juguetes",   emoji: "🎾" },
-  { key: "Accesorios", emoji: "🏷️" },
-  { key: "Higiene",    emoji: "🛁" },
+  { key: "Alimentos" },
+  { key: "Juguetes", },
+  { key: "Accesorios" },
+  { key: "Higiene"},
 ];
 
 const MASCOTAS = [
-  { key: "todos",  label: "Todos",  emoji: "🐾" },
-  { key: "Perros", label: "Perros", emoji: "🐶" },
-  { key: "Gatos",  label: "Gatos",  emoji: "🐱" },
+  { key: "todos",  label: "Todos"},
+  { key: "Perros", label: "Perros" },
+  { key: "Gatos",  label: "Gatos" },
 ];
 
 export const Inicio = () => {
@@ -240,7 +241,9 @@ export const Inicio = () => {
       </div>
        {/* Reseñas */}
       <ReseniasCarrusel/>
+      <FaqSeccion />
     </div>
+    
   );
 };
 
