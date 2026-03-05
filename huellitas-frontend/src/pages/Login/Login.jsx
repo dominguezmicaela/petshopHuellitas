@@ -1,7 +1,9 @@
+// pages/Login/Login.jsx
 import { useState } from "react";
 import LoginForm from "../../components/Login/LoginForm";
 import RegisterForm from "../../components/Login/RegisterForm";
 import { Logo } from "../../components/icono";
+import { C } from "../../style/colores";
 
 export const Login = () => {
   const [isRegisterMode, setIsRegisterMode] = useState(false);
@@ -19,7 +21,7 @@ export const Login = () => {
       <div style={{
         order: isRegisterMode ? 2 : 1,
         position: "relative",
-        background: "linear-gradient(135deg, #2d5140 0%, #3d6b4f 60%, #4a7d5e 100%)",
+        background: C.gradiente,
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
@@ -51,7 +53,7 @@ export const Login = () => {
           background: "radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%)",
         }}/>
 
-        {/* Huellitas watermark grande */}
+        {/* Watermark */}
         <div style={{
           position: "absolute", bottom: "-40px", right: "-40px",
           opacity: 0.06, pointerEvents: "none", transform: "rotate(-15deg)",
@@ -65,14 +67,14 @@ export const Login = () => {
           </div>
 
           <h2 style={{
-            fontSize: "2.8rem", fontWeight: 800, color: "#fff",
+            fontSize: "2.8rem", fontWeight: 800, color: C.sobreVerde,
             letterSpacing: "-1.5px", marginBottom: "1.2rem", lineHeight: 1.15,
           }}>
             {isRegisterMode ? "¡Únete a\nHuellitas!" : "Bienvenido\nde vuelta"}
           </h2>
 
           <p style={{
-            fontSize: "1rem", color: "rgba(242,233,220,0.8)",
+            fontSize: "1rem", color: C.sobreVerdeSubtle,
             lineHeight: 1.75, maxWidth: "300px", margin: "0 auto 2.5rem",
           }}>
             {isRegisterMode
@@ -80,21 +82,18 @@ export const Login = () => {
               : "Tu tienda de confianza para el cuidado y bienestar de tus mascotas"}
           </p>
 
-          <button
-            onClick={() => isRegisterMode ? null : null}
-            style={{
-              padding: "0.8rem 2.5rem",
-              borderRadius: "50px",
-              border: "2px solid rgba(255,255,255,0.5)",
-              background: "rgba(255,255,255,0.1)",
-              color: "#fff",
-              fontWeight: 700,
-              fontSize: "0.9rem",
-              cursor: "default",
-              backdropFilter: "blur(8px)",
-              letterSpacing: "0.3px",
-            }}
-          >
+          <button style={{
+            padding: "0.8rem 2.5rem",
+            borderRadius: "50px",
+            border: "2px solid rgba(255,255,255,0.5)",
+            background: "rgba(255,255,255,0.1)",
+            color: C.sobreVerde,
+            fontWeight: 700,
+            fontSize: "0.9rem",
+            cursor: "default",
+            backdropFilter: "blur(8px)",
+            letterSpacing: "0.3px",
+          }}>
             {isRegisterMode ? "Registrándote..." : "Iniciando sesión..."}
           </button>
         </div>
@@ -103,7 +102,7 @@ export const Login = () => {
       {/* ── PANEL FORMULARIO ── */}
       <div style={{
         order: isRegisterMode ? 1 : 2,
-        background: "linear-gradient(135deg, #f5ede0 0%, #faf5ee 100%)",
+        background: `linear-gradient(135deg, ${C.beige} 0%, #faf5ee 100%)`,
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",

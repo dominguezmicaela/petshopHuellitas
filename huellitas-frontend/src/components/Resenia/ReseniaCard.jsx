@@ -1,3 +1,5 @@
+import { C } from "../../style/colores";
+
 const ReseniaCard = ({ resenia, activa, onClick }) => (
   <div
     onClick={onClick}
@@ -12,7 +14,7 @@ const ReseniaCard = ({ resenia, activa, onClick }) => (
       cursor: "pointer",
       transition: "all 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
       ...(activa ? {
-        background: "#f5ede0",
+        background: C.beige,
         border: "2px solid rgba(255,255,255,0.5)",
         boxShadow: "0 24px 56px rgba(0,0,0,0.3)",
         transform: "scale(1.05)",
@@ -27,35 +29,34 @@ const ReseniaCard = ({ resenia, activa, onClick }) => (
   >
     {/* Top */}
     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-      <span style={{ fontSize: "2rem", color: "#3d6b4f", opacity: 0.25, fontFamily: "Georgia, serif", lineHeight: 1 }}>"</span>
+      <span style={{ fontSize: "2rem", color: C.verde3, opacity: 0.25, fontFamily: "Georgia, serif", lineHeight: 1 }}>"</span>
       <div style={{ display: "flex", gap: "2px" }}>
         {Array.from({ length: 5 }).map((_, i) => (
-          <span key={i} style={{ fontSize: "0.8rem", color: i < resenia.estrellas ? "#f5a623" : "#e8d9c8" }}>★</span>
+          <span key={i} style={{ fontSize: "0.8rem", color: i < resenia.estrellas ? "#f5a623" : C.beige2 }}>★</span>
         ))}
       </div>
     </div>
 
     {/* Texto */}
-    <p style={{ fontSize: "0.85rem", color: "#3a5244", lineHeight: 1.75, flex: 1 }}>
+    <p style={{ fontSize: "0.85rem", color: C.texto, lineHeight: 1.75, flex: 1 }}>
       {resenia.texto}
     </p>
 
     {/* Separador */}
-    <div style={{ height: "1px", background: "#e8d9c8" }}/>
+    <div style={{ height: "1px", background: C.beige2 }}/>
 
     {/* Autor */}
     <div style={{ display: "flex", alignItems: "center", gap: "9px" }}>
       <div style={{
         width: "36px", height: "36px", borderRadius: "10px", flexShrink: 0,
-        background: "linear-gradient(135deg, #3d6b4f, #2d5140)",
+        background: C.gradiente,
         display: "flex", alignItems: "center", justifyContent: "center",
         fontSize: "1.1rem",
       }}>
         {resenia.avatar}
       </div>
       <div>
-        <p style={{ fontWeight: 800, fontSize: "0.82rem", color: "#2d5140" }}>{resenia.nombre}</p>
-      
+        <p style={{ fontWeight: 800, fontSize: "0.82rem", color: C.verde2 }}>{resenia.nombre}</p>
       </div>
     </div>
   </div>

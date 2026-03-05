@@ -2,6 +2,7 @@
 import { useContacto }  from "../../hooks/useContacto";
 import ContactoInfo     from "../../components/Contacto/ContactoInfo";
 import ContactoForm     from "../../components/Contacto/ContactoForm";
+import { C }            from "../../style/colores";
 
 export const Contacto = () => {
   const contacto = useContacto();
@@ -11,9 +12,9 @@ export const Contacto = () => {
       width: "100%",
       minHeight: "calc(100vh - 64px)",
       display: "flex",
-      alignItems: "stretch",  
+      alignItems: "stretch",
       justifyContent: "center",
-      background: "linear-gradient(135deg, #f5ede0 0%, #faf5ee 100%)",
+      background: `linear-gradient(135deg, ${C.beige} 0%, #faf5ee 100%)`,
       fontFamily: "'Plus Jakarta Sans', sans-serif",
     }}>
       <div style={{

@@ -1,7 +1,8 @@
 import ReseniaCard from "./ReseniaCard";
 import { useResenias, useCountUp } from "../../hooks/useResenias";
+import { C } from "../../style/colores";
 
-// Stat animado 
+// ── Stat animado ───────────────────────────────────────────────
 const StatItem = ({ target, suffix, decimals, label, extra }) => {
   const { value, ref } = useCountUp(target, 1800, decimals);
   return (
@@ -11,17 +12,16 @@ const StatItem = ({ target, suffix, decimals, label, extra }) => {
       minWidth: "100px",
     }}>
       <span style={{
-        fontSize: "1.5rem", fontWeight: 800, color: "#fff",
-        lineHeight: 1, letterSpacing: "-1px",
-        fontVariantNumeric: "tabular-nums",
+        fontSize: "1.5rem", fontWeight: 800, color: C.sobreVerde,
+        lineHeight: 1, letterSpacing: "-1px", fontVariantNumeric: "tabular-nums",
       }}>
         {decimals > 0 ? value.toFixed(decimals) : Math.floor(value)}{suffix}
       </span>
-      <span style={{ color: "#fbbf24", fontSize: "0.7rem", marginTop: "4px", letterSpacing: "2px", height: "14px", display: "block" }}>
+      <span style={{ color: "#f5a623", fontSize: "0.7rem", marginTop: "4px", letterSpacing: "2px", height: "14px", display: "block" }}>
         {extra ?? ""}
       </span>
       <span style={{
-        fontSize: "0.6rem", color: "rgba(242,233,220,0.4)",
+        fontSize: "0.6rem", color: C.sobreVerdeMuted,
         fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em",
       }}>
         {label}
@@ -34,7 +34,7 @@ const StatDivider = () => (
   <div style={{ width: "1px", background: "rgba(255,255,255,0.1)", margin: "18% 0" }}/>
 );
 
-//Flecha
+// ── Flecha ─────────────────────────────────────────────────────
 const Arrow = ({ dir, onClick }) => (
   <button
     onClick={onClick}
@@ -42,25 +42,25 @@ const Arrow = ({ dir, onClick }) => (
       width: "40px", height: "40px", borderRadius: "50%",
       background: "rgba(255,255,255,0.07)",
       border: "1px solid rgba(255,255,255,0.13)",
-      color: "rgba(255,255,255,0.7)", cursor: "pointer",
+      color: C.sobreVerdeSubtle, cursor: "pointer",
       display: "flex", alignItems: "center", justifyContent: "center",
       fontSize: "1.1rem", transition: "all 0.2s ease",
     }}
-    onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.15)"; e.currentTarget.style.color = "#fff"; e.currentTarget.style.transform = "scale(1.1)"; }}
-    onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.07)"; e.currentTarget.style.color = "rgba(255,255,255,0.7)"; e.currentTarget.style.transform = "scale(1)"; }}
+    onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.15)"; e.currentTarget.style.color = C.sobreVerde; e.currentTarget.style.transform = "scale(1.1)"; }}
+    onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.07)"; e.currentTarget.style.color = C.sobreVerdeSubtle; e.currentTarget.style.transform = "scale(1)"; }}
   >
     {dir === "left" ? "‹" : "›"}
   </button>
 );
 
-// Componente principal
+// ── Componente principal ───────────────────────────────────────
 const ReseniaCarrusel = () => {
   const { resenias, activa, offset, siguiente, anterior, irA, setPausado, viewportRef } = useResenias();
 
   return (
     <section
       style={{
-        background: "linear-gradient(135deg, #1e3b2e 0%, #2d5140 50%, #1e3b2e 100%)",
+        background: `linear-gradient(135deg, ${C.verde1} 0%, ${C.verde2} 50%, ${C.verde1} 100%)`,
         minHeight: "100vh",
         padding: "4rem 0 3rem",
         position: "relative",
@@ -75,7 +75,7 @@ const ReseniaCarrusel = () => {
       {/* Mesh gradient + dots */}
       <div style={{
         position: "absolute", inset: 0, pointerEvents: "none",
-        backgroundImage: "radial-gradient(ellipse at 10% 60%, rgba(74,125,94,0.3) 0%, transparent 55%), radial-gradient(ellipse at 90% 15%, rgba(61,107,79,0.2) 0%, transparent 50%), radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px)",
+        backgroundImage: `radial-gradient(ellipse at 10% 60%, rgba(74,125,94,0.3) 0%, transparent 55%), radial-gradient(ellipse at 90% 15%, rgba(61,107,79,0.2) 0%, transparent 50%), radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px)`,
         backgroundSize: "100% 100%, 100% 100%, 32px 32px",
       }}/>
 
@@ -92,7 +92,7 @@ const ReseniaCarrusel = () => {
             <div style={{
               display: "inline-flex", alignItems: "center", gap: "8px",
               fontSize: "0.65rem", fontWeight: 800, textTransform: "uppercase",
-              letterSpacing: "0.2em", color: "#a8d5b5",
+              letterSpacing: "0.2em", color: C.acento,
               background: "rgba(168,213,181,0.1)", padding: "5px 14px",
               borderRadius: "99px", marginBottom: "1rem",
               border: "1px solid rgba(168,213,181,0.25)",
@@ -101,12 +101,12 @@ const ReseniaCarrusel = () => {
             </div>
             <h2 style={{
               fontSize: "clamp(1.7rem, 3.5vw, 2.4rem)", fontWeight: 800,
-              color: "#fff", letterSpacing: "-1.5px", lineHeight: 1.1,
+              color: C.sobreVerde, letterSpacing: "-1.5px", lineHeight: 1.1,
             }}>
               Ellos ya eligieron{" "}
-              <span style={{ color: "#a8d5b5" }}>Huellitas</span>
+              <span style={{ color: C.acento }}>Huellitas</span>
             </h2>
-            <p style={{ fontSize: "0.85rem", color: "rgba(242,233,220,0.45)", marginTop: "0.5rem" }}>
+            <p style={{ fontSize: "0.85rem", color: C.sobreVerdeMuted, marginTop: "0.5rem" }}>
               Lo que dice nuestra comunidad de familias
             </p>
           </div>
@@ -130,8 +130,8 @@ const ReseniaCarrusel = () => {
       {/* Carrusel full ancho */}
       <div style={{ position: "relative" }}>
         {/* Fades */}
-        <div style={{ position: "absolute", top: 0, bottom: 0, left: 0, width: "100px", zIndex: 5, pointerEvents: "none", background: "linear-gradient(to right, #1e3b2e, transparent)" }}/>
-        <div style={{ position: "absolute", top: 0, bottom: 0, right: 0, width: "100px", zIndex: 5, pointerEvents: "none", background: "linear-gradient(to left, #1e3b2e, transparent)" }}/>
+        <div style={{ position: "absolute", top: 0, bottom: 0, left: 0, width: "100px", zIndex: 5, pointerEvents: "none", background: `linear-gradient(to right, ${C.verde1}, transparent)` }}/>
+        <div style={{ position: "absolute", top: 0, bottom: 0, right: 0, width: "100px", zIndex: 5, pointerEvents: "none", background: `linear-gradient(to left, ${C.verde1}, transparent)` }}/>
 
         <div ref={viewportRef} style={{ overflow: "hidden" }}>
           <div style={{
@@ -158,7 +158,7 @@ const ReseniaCarrusel = () => {
                 height: "4px", borderRadius: "99px", border: "none", padding: 0, cursor: "pointer",
                 transition: "all 0.35s ease",
                 width: i === activa ? "22px" : "4px",
-                background: i === activa ? "#f5ede0" : "rgba(255,255,255,0.18)",
+                background: i === activa ? C.beige : "rgba(255,255,255,0.18)",
               }}
             />
           ))}

@@ -1,8 +1,11 @@
+// components/Contacto/ContactoForm.jsx
+import { C } from "../../styles/colores";
+
 const Label = ({ children }) => (
   <label style={{
     fontSize: "0.78rem", fontWeight: 700,
     textTransform: "uppercase", letterSpacing: "0.08em",
-    color: "#6b8c7a",
+    color: C.muted2,
   }}>
     {children}
   </label>
@@ -13,8 +16,8 @@ const inputStyle = {
   padding: "0.85rem 1rem",
   borderRadius: "12px",
   background: "#fff",
-  border: "2px solid #e8d9c8",
-  color: "#2d5140",
+  border: `2px solid ${C.beige3}`,
+  color: C.verde2,
   fontSize: "0.9rem",
   fontWeight: 500,
   fontFamily: "inherit",
@@ -28,8 +31,8 @@ const Input = ({ type = "text", name, placeholder, value, onChange, required }) 
     type={type} name={name} placeholder={placeholder}
     value={value} onChange={onChange} required={required}
     style={inputStyle}
-    onFocus={e => { e.target.style.borderColor = "#3d6b4f"; e.target.style.boxShadow = "0 0 0 4px rgba(61,107,79,0.08)"; }}
-    onBlur={e =>  { e.target.style.borderColor = "#e8d9c8"; e.target.style.boxShadow = "none"; }}
+    onFocus={e => { e.target.style.borderColor = C.verde3; e.target.style.boxShadow = "0 0 0 4px rgba(61,107,79,0.08)"; }}
+    onBlur={e =>  { e.target.style.borderColor = C.beige3; e.target.style.boxShadow = "none"; }}
   />
 );
 
@@ -53,50 +56,33 @@ const ContactoForm = ({ formData, status, isLoading, handleChange, handleSubmit 
   <div style={{
     position: "relative",
     padding: "3rem 2.5rem",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    background: "#f5ede0",
-    overflow: "hidden",
+    display: "flex", flexDirection: "column", justifyContent: "center",
+    background: C.beige, overflow: "hidden",
   }}>
 
-    {/* Grid background — esquina superior derecha */}
     <div style={{
-      position: "absolute",
-      top: 0, right: 0,
-      width: "220px", height: "220px",
-      pointerEvents: "none",
-      backgroundImage: `
-        linear-gradient(rgba(61,107,79,0.07) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(61,107,79,0.07) 1px, transparent 1px)
-      `,
+      position: "absolute", top: 0, right: 0,
+      width: "220px", height: "220px", pointerEvents: "none",
+      backgroundImage: `linear-gradient(rgba(61,107,79,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(61,107,79,0.07) 1px, transparent 1px)`,
       backgroundSize: "28px 28px",
       maskImage: "radial-gradient(ellipse at top right, black 0%, transparent 70%)",
       WebkitMaskImage: "radial-gradient(ellipse at top right, black 0%, transparent 70%)",
     }}/>
-
-    {/* Grid background — esquina inferior izquierda */}
     <div style={{
-      position: "absolute",
-      bottom: 0, left: 0,
-      width: "160px", height: "160px",
-      pointerEvents: "none",
-      backgroundImage: `
-        linear-gradient(rgba(61,107,79,0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(61,107,79,0.06) 1px, transparent 1px)
-      `,
+      position: "absolute", bottom: 0, left: 0,
+      width: "160px", height: "160px", pointerEvents: "none",
+      backgroundImage: `linear-gradient(rgba(61,107,79,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(61,107,79,0.06) 1px, transparent 1px)`,
       backgroundSize: "28px 28px",
       maskImage: "radial-gradient(ellipse at bottom left, black 0%, transparent 70%)",
       WebkitMaskImage: "radial-gradient(ellipse at bottom left, black 0%, transparent 70%)",
     }}/>
 
     <div style={{ position: "relative", zIndex: 1 }}>
-      {/* Header */}
       <div style={{ marginBottom: "2rem" }}>
-        <h1 style={{ fontSize: "2rem", fontWeight: 800, color: "#2d5140", letterSpacing: "-0.5px", marginBottom: "6px" }}>
+        <h1 style={{ fontSize: "2rem", fontWeight: 800, color: C.verde2, letterSpacing: "-0.5px", marginBottom: "6px" }}>
           Contactanos
         </h1>
-        <p style={{ fontSize: "0.88rem", color: "#6b8c7a", fontWeight: 500 }}>
+        <p style={{ fontSize: "0.88rem", color: C.muted2, fontWeight: 500 }}>
           Si tenés dudas sobre algún producto… ¡Escribinos!
         </p>
       </div>
@@ -104,7 +90,6 @@ const ContactoForm = ({ formData, status, isLoading, handleChange, handleSubmit 
       <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
         <StatusMsg status={status}/>
 
-        {/* Nombre + Apellido */}
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.75rem" }}>
           <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
             <Label>Nombre</Label>
@@ -116,39 +101,32 @@ const ContactoForm = ({ formData, status, isLoading, handleChange, handleSubmit 
           </div>
         </div>
 
-        {/* Email */}
         <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
           <Label>Email</Label>
           <Input type="email" name="email" placeholder="tucorreo@ejemplo.com" value={formData.email} onChange={handleChange} required/>
         </div>
 
-        {/* Mensaje */}
         <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
           <Label>Mensaje</Label>
           <textarea
             name="mensaje" placeholder="Escribí aquí tu consulta..."
             value={formData.mensaje} onChange={handleChange} required rows={4}
             style={{ ...inputStyle, resize: "none", lineHeight: 1.6 }}
-            onFocus={e => { e.target.style.borderColor = "#3d6b4f"; e.target.style.boxShadow = "0 0 0 4px rgba(61,107,79,0.08)"; }}
-            onBlur={e =>  { e.target.style.borderColor = "#e8d9c8"; e.target.style.boxShadow = "none"; }}
+            onFocus={e => { e.target.style.borderColor = C.verde3; e.target.style.boxShadow = "0 0 0 4px rgba(61,107,79,0.08)"; }}
+            onBlur={e =>  { e.target.style.borderColor = C.beige3; e.target.style.boxShadow = "none"; }}
           />
         </div>
 
-        {/* Submit */}
         <button
-          type="submit"
-          disabled={isLoading}
+          type="submit" disabled={isLoading}
           style={{
-            width: "100%", padding: "1rem",
-            borderRadius: "14px",
-            background: "linear-gradient(135deg, #3d6b4f, #2d5140)",
-            color: "#fff", fontWeight: 700, fontSize: "0.95rem",
+            width: "100%", padding: "1rem", borderRadius: "14px",
+            background: C.gradiente, color: C.sobreVerde,
+            fontWeight: 700, fontSize: "0.95rem",
             border: "none", cursor: isLoading ? "not-allowed" : "pointer",
             opacity: isLoading ? 0.75 : 1,
             boxShadow: "0 6px 24px rgba(61,107,79,0.3)",
-            fontFamily: "inherit",
-            transition: "box-shadow 0.2s",
-            marginTop: "4px",
+            fontFamily: "inherit", transition: "box-shadow 0.2s", marginTop: "4px",
           }}
           onMouseEnter={e => !isLoading && (e.currentTarget.style.boxShadow = "0 10px 32px rgba(61,107,79,0.42)")}
           onMouseLeave={e => (e.currentTarget.style.boxShadow = "0 6px 24px rgba(61,107,79,0.3)")}

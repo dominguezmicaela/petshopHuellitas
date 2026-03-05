@@ -1,5 +1,7 @@
+// components/Header.jsx
 import { Link } from "react-router-dom";
 import { Logo, IcoHome, IcoMail, IcoCart, IcoUser } from "./icono";
+import { C } from "../styles/colores";
 
 const NavBtn = ({ to, icon: Icon, label, accent }) => (
   <Link to={to} style={{ textDecoration: "none" }}>
@@ -8,8 +10,8 @@ const NavBtn = ({ to, icon: Icon, label, accent }) => (
         display: "flex", alignItems: "center", gap: "8px",
         padding: "10px 18px", borderRadius: "12px",
         fontWeight: 600, fontSize: "13px",
-        color: accent ? "#fff" : "#3a5244",
-        background: accent ? "linear-gradient(135deg, #3d6b4f, #2d5140)" : "transparent",
+        color: accent ? C.sobreVerde : C.verde2,
+        background: accent ? C.gradiente : "transparent",
         cursor: "pointer",
         transition: "all 0.2s ease",
         boxShadow: accent ? "0 4px 14px rgba(61,107,79,0.28)" : "none",
@@ -18,14 +20,14 @@ const NavBtn = ({ to, icon: Icon, label, accent }) => (
         e.currentTarget.style.transform = "translateY(-1px)";
         if (!accent) {
           e.currentTarget.style.background = "rgba(85,124,85,0.08)";
-          e.currentTarget.style.color = "#3d6b4f";
+          e.currentTarget.style.color = C.verde3;
         }
       }}
       onMouseLeave={e => {
         e.currentTarget.style.transform = "translateY(0)";
         if (!accent) {
           e.currentTarget.style.background = "transparent";
-          e.currentTarget.style.color = "#3a5244";
+          e.currentTarget.style.color = C.verde2;
         }
       }}
     >
@@ -41,14 +43,14 @@ export const Header = () => (
     height: "72px", width: "100%",
     background: "rgba(245,237,224,0.92)",
     backdropFilter: "blur(20px)",
-    borderBottom: "2px solid #2d5140",
+    borderBottom: `2px solid ${C.verde2}`,
     display: "flex", alignItems: "center",
     justifyContent: "space-between",
     padding: "0 5%",
   }}>
     <div style={{
       position: "absolute", top: 0, left: 0, right: 0, height: "3px",
-      background: "linear-gradient(90deg, #3d6b4f 0%, #2d5140 50%, #3d6b4f 100%)",
+      background: `linear-gradient(90deg, ${C.verde3} 0%, ${C.verde2} 50%, ${C.verde3} 100%)`,
     }}/>
 
     <Link to="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "10px" }}>
@@ -59,7 +61,7 @@ export const Header = () => (
       >
         <Logo />
       </div>
-      <span style={{ fontWeight: 800, fontSize: "1.8rem", color: "#2d5140", letterSpacing: "-0.5px" }}>
+      <span style={{ fontWeight: 800, fontSize: "1.8rem", color: C.verde2, letterSpacing: "-0.5px" }}>
         Huellitas
       </span>
     </Link>

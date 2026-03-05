@@ -1,4 +1,6 @@
+// components/Carrito/CarritoItem.jsx
 import { useState } from "react";
+import { C } from "../../styles/colores";
 
 const CarritoItem = ({ item, updateCantidad, removeItem }) => {
   const [hovered, setHovered] = useState(false);
@@ -10,10 +12,8 @@ const CarritoItem = ({ item, updateCantidad, removeItem }) => {
       style={{
         background: "#fff",
         borderRadius: "20px",
-        border: "1.5px solid #f0e6d8",
-        boxShadow: hovered
-          ? "0 12px 36px rgba(0,0,0,0.1)"
-          : "0 4px 16px rgba(0,0,0,0.05)",
+        border: `1.5px solid ${C.beige2}`,
+        boxShadow: hovered ? "0 12px 36px rgba(0,0,0,0.1)" : "0 4px 16px rgba(0,0,0,0.05)",
         padding: "1.2rem",
         display: "grid",
         gridTemplateColumns: "110px 1fr auto auto",
@@ -26,7 +26,7 @@ const CarritoItem = ({ item, updateCantidad, removeItem }) => {
       {/* Imagen */}
       <div style={{
         width: "110px", height: "110px", borderRadius: "14px", overflow: "hidden",
-        background: "linear-gradient(135deg, #faf5ee, #f2e9dc)",
+        background: `linear-gradient(135deg, ${C.beige}, #f2e9dc)`,
         display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
       }}>
         {item.img
@@ -37,15 +37,15 @@ const CarritoItem = ({ item, updateCantidad, removeItem }) => {
 
       {/* Info */}
       <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-        <h3 style={{ fontWeight: 800, fontSize: "0.95rem", color: "#2d5140", lineHeight: 1.3 }}>
+        <h3 style={{ fontWeight: 800, fontSize: "0.95rem", color: C.verde2, lineHeight: 1.3 }}>
           {item.nombre}
         </h3>
         {item.talle && (
-          <p style={{ fontSize: "0.8rem", color: "#8aaa96", fontWeight: 500 }}>
-            Talle: <strong style={{ color: "#3a5244" }}>{item.talle}</strong>
+          <p style={{ fontSize: "0.8rem", color: C.muted, fontWeight: 500 }}>
+            Talle: <strong style={{ color: C.verde2 }}>{item.talle}</strong>
           </p>
         )}
-        <p style={{ fontSize: "0.9rem", fontWeight: 700, color: "#3d6b4f", marginTop: "4px" }}>
+        <p style={{ fontSize: "0.9rem", fontWeight: 700, color: C.verde3, marginTop: "4px" }}>
           ${item.precio.toLocaleString("es-AR")}
         </p>
       </div>
@@ -53,29 +53,29 @@ const CarritoItem = ({ item, updateCantidad, removeItem }) => {
       {/* Cantidad */}
       <div style={{
         display: "flex", alignItems: "center", gap: "10px",
-        background: "#faf5ee", borderRadius: "12px",
+        background: C.beige, borderRadius: "12px",
         padding: "0.4rem 0.8rem",
-        border: "1.5px solid #e8d9c8",
+        border: `1.5px solid ${C.beige3}`,
       }}>
         <button
           onClick={() => updateCantidad(item.id, item.cantidad - 1)}
           style={{
             width: "28px", height: "28px", borderRadius: "8px",
-            background: "linear-gradient(135deg, #3d6b4f, #2d5140)",
-            color: "#fff", border: "none", fontWeight: 700, fontSize: "1rem",
+            background: C.gradiente,
+            color: C.sobreVerde, border: "none", fontWeight: 700, fontSize: "1rem",
             cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center",
             transition: "opacity 0.15s",
           }}
         >−</button>
-        <span style={{ fontWeight: 800, fontSize: "0.95rem", color: "#2d5140", minWidth: "24px", textAlign: "center" }}>
+        <span style={{ fontWeight: 800, fontSize: "0.95rem", color: C.verde2, minWidth: "24px", textAlign: "center" }}>
           {item.cantidad}
         </span>
         <button
           onClick={() => updateCantidad(item.id, item.cantidad + 1)}
           style={{
             width: "28px", height: "28px", borderRadius: "8px",
-            background: "linear-gradient(135deg, #3d6b4f, #2d5140)",
-            color: "#fff", border: "none", fontWeight: 700, fontSize: "1rem",
+            background: C.gradiente,
+            color: C.sobreVerde, border: "none", fontWeight: 700, fontSize: "1rem",
             cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center",
           }}
         >+</button>
@@ -83,7 +83,7 @@ const CarritoItem = ({ item, updateCantidad, removeItem }) => {
 
       {/* Total + eliminar */}
       <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "10px" }}>
-        <span style={{ fontWeight: 800, fontSize: "1.1rem", color: "#2d5140" }}>
+        <span style={{ fontWeight: 800, fontSize: "1.1rem", color: C.verde2 }}>
           ${(item.precio * item.cantidad).toLocaleString("es-AR")}
         </span>
         <button
