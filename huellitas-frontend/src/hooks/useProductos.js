@@ -1,24 +1,37 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
+
+const API_URL = "http://localhost:5055/api/Productos";
+const LIMIT = 12;
 
 export const useProductos = () => {
   const [productos, setProductos] = useState([]);
   const [cargando, setCargando] = useState(true);
+  const [pagina, setPagina] = useState(1);
+  const [totalPaginas, setTotalPaginas] = useState(1);
+  const [total, setTotal] = useState(0);
 
   useEffect(() => {
-    const obtenerProductos = async () => {
+    const fetchProductos = async () => {
+      setCargando(true);
       try {
-        const respuesta = await fetch('https://petshophuellitas.onrender.com/api/Productos');
-        const datos = await respuesta.json();
-        setProductos(datos);
-        setCargando(false);
+        const response = await fetch(`${API_URL}?page=${pagina}&limit=${LIMIT}`);
+        const data = await response.json();
+
+        const items = data.productos || data.item1 || [];
+        const count = data.total || data.item2 || 0;
+
+        setProductos(items);
+        setTotal(count);
+        setTotalPaginas(Math.ceil(count / LIMIT));
       } catch (error) {
-        console.error("Error al cargar productos:", error);
+        console.error("Fetch error:", error);
+      } finally {
         setCargando(false);
       }
     };
 
-    obtenerProductos();
-  }, []);
-  
-  return { productos, cargando };
+    fetchProductos();
+  }, [pagina]);
+
+  return { productos, cargando, pagina, setPagina, totalPaginas, total };
 };

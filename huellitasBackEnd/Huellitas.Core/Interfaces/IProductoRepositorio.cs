@@ -10,5 +10,6 @@ namespace Huellitas.Core.Interfaces
         Task<Producto> CrearAsync(Producto producto);
         Task<Producto> ActualizarAsync(Producto producto);
         Task EliminarAsync(Producto producto);
+        Task<(IEnumerable<Producto> productos, int total)> ObtenerPaginadoAsync(int page, int limit);
     }
 }

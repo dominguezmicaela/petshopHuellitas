@@ -10,5 +10,7 @@ namespace Huellitas.Service.Interfaces
         Task<Producto> CrearProductoAsync(Producto producto);
         Task<Producto> ActualizarProductoAsync(int id, Producto producto);
         Task<bool>EliminarProductoAsync(int id);
+        Task<(IEnumerable<Producto> productos, int total)> ObtenerProductosPaginadoAsync(int page, int limit);
     }
+
 }

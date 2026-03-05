@@ -48,6 +48,11 @@ namespace Huellitas.Service
             await _productoRepositorio.EliminarAsync(producto);
             return true;
         }
+        //paginacion
+        public async Task<(IEnumerable<Producto> productos, int total)> ObtenerProductosPaginadoAsync(int page, int limit)
+        {
+            return await _productoRepositorio.ObtenerPaginadoAsync(page, limit);
+        }
 
     }
 }

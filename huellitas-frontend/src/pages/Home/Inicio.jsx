@@ -4,10 +4,11 @@ import { useFiltros } from "../../hooks/useFiltros";
 import FilterSidebar from "../../components/FilterSidebar";
 import ProductCard from "../../components/Producto/ProductCard";
 import { PawWatermark, IcoSearch } from "../../components/icono";
+import Paginacion from "../../components/Paginacion";
 
 export const Inicio = () => {
-  const { productos, cargando } = useProductos();
-
+ const { productos, cargando, pagina, setPagina, totalPaginas, total } = useProductos();
+ 
   const {
     busqueda,
     setBusqueda,
@@ -273,6 +274,14 @@ export const Inicio = () => {
                 No hay productos disponibles
               </p>
             </div>
+          )}
+           {/* Paginación */}
+          {!cargando && (
+            <Paginacion
+              pagina={pagina}
+              totalPaginas={totalPaginas}
+              setPagina={setPagina}
+            />
           )}
         </div>
       </div>

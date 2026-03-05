@@ -44,6 +44,15 @@ namespace Huellitas.Data.Repositorios
             _context.Productos.Remove(producto);
             await _context.SaveChangesAsync();
         }
+        public async Task<(IEnumerable<Producto> productos, int total)> ObtenerPaginadoAsync(int page, int limit)
+        {
+            var total = await _context.Productos.CountAsync();
+            var productos = await _context.Productos
+                .Skip((page - 1) * limit)
+                .Take(limit)
+                .ToListAsync();
+            return (productos, total);
+        }
 
         
     }
