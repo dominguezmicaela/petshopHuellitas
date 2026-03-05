@@ -11,5 +11,6 @@ namespace Huellitas.Core.Interfaces
         Task<Producto> ActualizarAsync(Producto producto);
         Task EliminarAsync(Producto producto);
         Task<(IEnumerable<Producto> productos, int total)> ObtenerPaginadoAsync(int page, int limit);
+        Task<PagedResultDto<Producto>> ObtenerFiltradosAsync(ProductoFiltroDto filtros, int page=1,int pageSize)
     }
 }
