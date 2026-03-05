@@ -6,6 +6,9 @@ export const useFiltros = (productos = []) => {
   const [mascota, setMascota]       = useState("todos");
   const [orden, setOrden]           = useState("relevancia");
 
+  // Este es el salvavidas que evita que la página quede en blanco
+  const listaSegura = Array.isArray(productos) ? productos : [];
+
   const toggleCategoria = (cat) =>
     setCategorias(prev =>
       prev.includes(cat) ? prev.filter(c => c !== cat) : [...prev, cat]
@@ -21,7 +24,7 @@ export const useFiltros = (productos = []) => {
   const hayFiltrosActivos = categorias.length > 0 || mascota !== "todos" || busqueda !== "";
 
   const productosOrdenados = useMemo(() => {
-    const filtrados = productos.filter(p => {
+    const filtrados = listaSegura.filter(p => {
       const matchBusqueda = p.nombre?.toLowerCase().includes(busqueda.toLowerCase());
       const matchCat      = categorias.length === 0 || categorias.includes(p.categoria);
       const matchMascota  = mascota === "todos" || p.mascota === mascota;
@@ -33,16 +36,12 @@ export const useFiltros = (productos = []) => {
       if (orden === "precio_desc") return b.precio - a.precio;
       return 0;
     });
-  }, [productos, busqueda, categorias, mascota, orden]);
+  }, [listaSegura, busqueda, categorias, mascota, orden]);
 
   return {
-    // valores
     busqueda, categorias, mascota, orden,
-    // setters
     setBusqueda, setMascota, setOrden,
-    // helpers
     toggleCategoria, limpiar, hayFiltrosActivos,
-    // resultado
     productosOrdenados,
   };
 };
