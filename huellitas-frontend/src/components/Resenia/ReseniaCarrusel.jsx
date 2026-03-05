@@ -1,6 +1,6 @@
 import ReseniaCard from "./ReseniaCard";
 import { useResenias, useCountUp } from "../../hooks/useResenias";
-import { C } from "../../style/colores";
+import { C } from "../../styles/colores";
 
 // ── Stat animado ───────────────────────────────────────────────
 const StatItem = ({ target, suffix, decimals, label, extra }) => {

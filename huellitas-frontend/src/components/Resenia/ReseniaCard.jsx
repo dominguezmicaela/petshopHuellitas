@@ -1,4 +1,4 @@
-import { C } from "../../style/colores";
+import { C } from "../../styles/colores";
 
 const ReseniaCard = ({ resenia, activa, onClick }) => (
   <div

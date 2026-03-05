@@ -1,8 +1,7 @@
-// pages/Contact/Contacto.jsx
 import { useContacto }  from "../../hooks/useContacto";
 import ContactoInfo     from "../../components/Contacto/ContactoInfo";
 import ContactoForm     from "../../components/Contacto/ContactoForm";
-import { C }            from "../../style/colores";
+import { C }            from "../../styles/colores";
 
 export const Contacto = () => {
   const contacto = useContacto();

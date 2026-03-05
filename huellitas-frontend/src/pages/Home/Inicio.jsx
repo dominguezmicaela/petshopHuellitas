@@ -6,7 +6,7 @@ import Paginacion from "../../components/Paginacion";
 import { PawWatermark, IcoSearch, IcoFilter } from "../../components/icono";
 import ReseniasCarrusel from "../../components/Resenia/ReseniaCarrusel";
 import FaqSeccion from "../../components/Faq/FaqSection";
-import { C } from "../../style/colores";
+import { C } from "../../styles/colores";
 
 const CATEGORIAS = [
   { key: "Alimentos" },

@@ -1,4 +1,3 @@
-// components/Contacto/ContactoInfo.jsx
 import { C } from "../../styles/colores";
 
 const INFO_ITEMS = [

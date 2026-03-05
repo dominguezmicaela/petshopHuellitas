@@ -1,5 +1,3 @@
-// Componentes UI reutilizables para los formularios de autenticación
-
 const inputStyle = {
   width: "100%",
   padding: "0.9rem 1.2rem",

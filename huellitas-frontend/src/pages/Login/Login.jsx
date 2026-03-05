@@ -3,7 +3,7 @@ import { useState } from "react";
 import LoginForm from "../../components/Login/LoginForm";
 import RegisterForm from "../../components/Login/RegisterForm";
 import { Logo } from "../../components/icono";
-import { C } from "../../style/colores";
+import { C } from "../../styles/colores";
 
 export const Login = () => {
   const [isRegisterMode, setIsRegisterMode] = useState(false);

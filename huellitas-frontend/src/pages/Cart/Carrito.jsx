@@ -3,7 +3,7 @@ import useCarrito from "../../hooks/useCarrito";
 import CarritoItem from "../../components/Carrito/CarritoItem";
 import CarritoResumen from "../../components/Carrito/CarritoResumen";
 import CarritoVacio from "../../components/Carrito/CarritoVacio";
-import { C } from "../../style/colores";
+import { C } from "../../styles/colores";
 
 export const Carrito = () => {
   const { items, updateCantidad, removeItem, subtotal, envio, total } = useCarrito();

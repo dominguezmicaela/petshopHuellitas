@@ -1,4 +1,3 @@
-// components/Contacto/ContactoForm.jsx
 import { C } from "../../styles/colores";
 
 const Label = ({ children }) => (
