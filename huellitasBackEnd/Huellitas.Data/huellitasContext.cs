@@ -17,7 +17,23 @@ namespace Huellitas.Data
         public DbSet<Rol> Roles { get; set; }
         public DbSet<Pedido> Pedidos { get; set; }
         public DbSet<Detalle> Detalles { get; set; }
+        public DbSet<Devolucion> Devoluciones { get; set; }
+        public DbSet<Resenia> Resenias { get; set; }
+        public DbSet<Favorito> Favoritos { get; set; }
+        public DbSet<Notificacion> Notificaciones { get; set; }
+        public DbSet<PedidoEstado> PedidoEstados { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Devolucion>()
+                .HasOne(d => d.Pedido)
+                .WithOne(p => p.devolucion)
+                .HasForeignKey<Devolucion>(d => d.idPedido);
 
+            modelBuilder.Entity<Devolucion>()
+                .HasOne(d => d.Usuario)
+                .WithMany(u => u.devoluciones)
+                .HasForeignKey(d => d.idUsuario);
+        }
     }
 }

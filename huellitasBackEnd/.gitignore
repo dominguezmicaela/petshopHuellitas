@@ -489,3 +489,4 @@ appsettings.Development.json
 # Carpetas de compilación (esto siempre tiene que estar)
 bin/
 obj/
+.vs/

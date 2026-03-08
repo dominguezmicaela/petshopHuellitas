@@ -9,7 +9,11 @@ namespace Huellitas.Core.Entities
     {
         [Key]
         public int idPedido{get;set;}
-        public DateTime fecha{get;set;}=DateTime.Now;
+
+        [Required]
+        public int idUsuario{get;set;}
+
+        public DateTime fecha{get;set;}=DateTime.UtcNow;
 
         [Column(TypeName ="decimal(18,2)")]
         public decimal total{get;set;}
@@ -17,12 +21,14 @@ namespace Huellitas.Core.Entities
         [MaxLength(50)]
         public string metodoPago {get;set;}=string.Empty;//tarjeta efectivo 
 
-        public int idUsuario{get;set;}
+        [MaxLength(255)]
+        public string  direccionEnvio {get;set;}=string.Empty;  
+
         [ForeignKey("idUsuario")]
         public virtual Usuario Usuario {get;set;}=null!;
-
         public virtual ICollection<Detalle> detalles {get;set;}= new List<Detalle>();
-
+        public virtual ICollection<PedidoEstado> estados { get; set; } = new List<PedidoEstado>();
+        public virtual Devolucion? devolucion { get; set; }
 
 
     }

@@ -1,6 +1,5 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
 namespace Huellitas.Core.Entities
 {
@@ -9,10 +8,16 @@ namespace Huellitas.Core.Entities
     {
         [Key]
         public int idDetalle{get; set;}
+
+        [Required]
+        public int idPedido{get;set;}
+
+        [Required]
         public int cantidad {get;set;}
 
         [Column(TypeName = "decimal(18,2)")]
         public decimal precioUnitario{get; set;}
+
         // relacion con pedido
         [ForeignKey("idPedido")]
         public virtual Pedido Pedido {get;set;}=null!;

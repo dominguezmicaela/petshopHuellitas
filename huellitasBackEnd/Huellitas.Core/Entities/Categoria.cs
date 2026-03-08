@@ -1,6 +1,5 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Collections.Generic;
 
 namespace Huellitas.Core.Entities
 {
@@ -9,11 +8,15 @@ namespace Huellitas.Core.Entities
     {
         [Key]
         public int idCategoria{get;set;}
+        
         [Required]
         [MaxLength(100)]
         public string nombre{get;set;}=string.Empty;
+        
         [MaxLength(255)]
         public string descripcion{get;set;}=string.Empty;
+        
+        //relacion con producto
         public virtual ICollection<Producto> Productos { get; set; } = new List<Producto>();
     }
 }

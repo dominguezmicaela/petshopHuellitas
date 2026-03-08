@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
+
+
 namespace Huellitas.Core.Entities
 {
     [Table("Rol")]
@@ -9,10 +9,12 @@ namespace Huellitas.Core.Entities
     {
         [Key]
         public int idRol{get;set;}
+
         [Required]
         [MaxLength(50)]
         public string tipoRol{ get; set;}=string.Empty;
-        //relacion con rol
+
+        //relacion con usuario
         public virtual ICollection<Usuario>usuarios{get;set;}=new List<Usuario>();
     }
 
