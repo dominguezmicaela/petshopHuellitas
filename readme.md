@@ -13,7 +13,7 @@ Bienvenidos a **Huellitas**! Lo que comenzó como un proyecto de curso se transf
 El proyecto ha sido reestructurado íntegramente para funcionar bajo un esquema de tres capas:
 
 ### 1. Backend
-* **Framework:** desarrollado con **.NET 9 / C#**.
+* **Framework:** desarrollado con **.NET / C#**.
 * **Arquitectura:** basada en controladores y servicios con clara separación de responsabilidades.
 * **Hosting:** desplegado en **Render**.
 * **Patrones de diseño:**
@@ -35,8 +35,25 @@ El proyecto ha sido reestructurado íntegramente para funcionar bajo un esquema 
 ### ## Estructura de base de datos
 ![Diagrama de Base de Datos](./docs/diagrams/huellitasdb2.png)
 
+El modelo incluye las siguientes entidades principales:
+
+Entidad        | Descripción 
+
+`Usuario`      | Datos del cliente, autenticación y segmentación 
+`Rol`          |  Control de acceso por tipo de usuario 
+`Producto`     |  Catálogo con stock, precio, peso y marca 
+`Categoria`    | Clasificación de productos 
+`Pedido`       | Órdenes de compra con método de pago y envío 
+`Detalle`      | Líneas de cada pedido (cantidad y precio unitario) 
+`PedidoEstado` | Historial de estados del pedido 
+`Devolucion`   | Gestión de reembolsos y devoluciones 
+`Resenia`      | Calificaciones y comentarios de productos 
+`Favorito`     | Productos guardados por usuario 
+`Notificacion` | Sistema de alertas internas por usuario 
+
+
 ### 3. Frontend (Migración a React)
-> ⚠️ **Estado del Frontend:** La interfaz ha sido migrada de HTML estático a **React**, mejorando la reactividad y la experiencia de usuario. Actualmente se encuentra en fase de integración dinámica con el Backend.
+
 * **Tecnologías:** React, Vite, JavaScript (ES6+), CSS3 (Flexbox/Grid).
 * **Navegación:** Implementación de **React Router Dom** para la gestión de rutas y paneles administrativos.
 * **Persistencia Local:** Uso de **LocalStorage** para la gestión del carrito de compras.
@@ -46,21 +63,12 @@ El proyecto ha sido reestructurado íntegramente para funcionar bajo un esquema 
 
 ## Funcionalidades Destacadas
 
-* **Dashboard Administrativo:** Panel exclusivo con acceso a métricas clave y gestión de usuarios.
+
 * **Catálogo Dinámico:** Los productos se cargan en tiempo real consumiendo los endpoints de la API.
 * **Carrito de Compras:** sistema persistente para agregar, eliminar y gestionar pedidos.
-* **Diseño Responsive:** interfaz optimizada para celulares, tablets y computadoras de escritorio.
+* **Diseño Responsive:** interfaz optimizada para celulares, tablets y computadoras de escritorio.[En progreso]
 * **Documentación API:** endpoints totalmente documentados y testeables mediante **Swagger UI**.
-
----
-
-## Roadmap (Data Science, IA & CRM)
-
-* **[Completado] Smart Data Pipeline:** Desarrollo de scripts en Python para la limpieza y carga inteligente de productos, categorizando automáticamente los ítems.
-* **[En Progreso] Dashboard Dinámico para CRM:** Visualización de tendencias de compra y gestión analítica de los 580 usuarios dentro del panel de administración.
-* **[Futuro] Motor de Recomendaciones:** Implementación de lógica de **Machine Learning** para sugerir productos complementarios basados en el historial del usuario.
-* **[Futuro] Análisis Predictivo:** Dashboard de visualización avanzada para la predicción de demanda de stock.
-
+ 
 ---
 
 ## Metodología de Desarrollo
@@ -68,7 +76,7 @@ El proyecto ha sido reestructurado íntegramente para funcionar bajo un esquema 
 * **AI-Assisted Development:** Uso de herramientas de **IA** para la optimización de algoritmos, refactorización de código y sugerencias de arquitectura.
 * **Control de Versiones:** Flujo de trabajo basado en **Feature Branches** y adopción de **Conventional Commits** para un historial limpio y profesional.
 * **Documentación:** Mantenimiento constante de la documentación técnica del proyecto.
-
+* **Kanban:** Gestión del flujo de trabajo mediante tablero Kanban para organizar y priorizar tareas de forma visual e iterativa.
 ---
 
 ## Stack 
