@@ -33,7 +33,7 @@ El proyecto ha sido reestructurado íntegramente para funcionar bajo un esquema 
 * **Modelado:** diseño relacional normalizado para asegurar la consistencia.
 
 ### ## Estructura de base de datos
-![Diagrama de Base de Datos](./docs/diagrams/huellitasdb.png)
+![Diagrama de Base de Datos](./docs/diagrams/huellitasdb2.png)
 
 ### 3. Frontend (Migración a React)
 > ⚠️ **Estado del Frontend:** La interfaz ha sido migrada de HTML estático a **React**, mejorando la reactividad y la experiencia de usuario. Actualmente se encuentra en fase de integración dinámica con el Backend.
