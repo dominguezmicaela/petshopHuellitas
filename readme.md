@@ -51,8 +51,7 @@ El modelo incluye las siguientes entidades:
 | `Favorito` | Productos guardados por usuario |
 | `Notificacion` | Sistema de alertas internas por usuario |
 
-### 3. Frontend (Migración a React)
-
+### 3. Frontend
 * **Tecnologías:** React, Vite, JavaScript (ES6+), CSS3 (Flexbox/Grid).
 * **Navegación:** Implementación de **React Router Dom** para la gestión de rutas y paneles administrativos.
 * **Persistencia Local:** Uso de **LocalStorage** para la gestión del carrito de compras.
