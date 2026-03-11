@@ -35,22 +35,21 @@ El proyecto ha sido reestructurado íntegramente para funcionar bajo un esquema 
 ### ## Estructura de base de datos
 ![Diagrama de Base de Datos](./docs/diagrams/huellitasdb2.png)
 
-El modelo incluye las siguientes entidades principales:
+El modelo incluye las siguientes entidades:
 
-Entidad        | Descripción 
-
-`Usuario`      | Datos del cliente, autenticación y segmentación 
-`Rol`          |  Control de acceso por tipo de usuario 
-`Producto`     |  Catálogo con stock, precio, peso y marca 
-`Categoria`    | Clasificación de productos 
-`Pedido`       | Órdenes de compra con método de pago y envío 
-`Detalle`      | Líneas de cada pedido (cantidad y precio unitario) 
-`PedidoEstado` | Historial de estados del pedido 
-`Devolucion`   | Gestión de reembolsos y devoluciones 
-`Resenia`      | Calificaciones y comentarios de productos 
-`Favorito`     | Productos guardados por usuario 
-`Notificacion` | Sistema de alertas internas por usuario 
-
+| Entidad | Descripción |
+|---|---|
+| `Usuario` | Datos del cliente, autenticación y segmentación |
+| `Rol` | Control de acceso por tipo de usuario |
+| `Producto` | Catálogo con stock, precio, peso y marca |
+| `Categoria` | Clasificación de productos |
+| `Pedido` | Órdenes de compra con método de pago y envío |
+| `Detalle` | Líneas de cada pedido (cantidad y precio unitario) |
+| `PedidoEstado` | Historial de estados del pedido |
+| `Devolucion` | Gestión de reembolsos y devoluciones |
+| `Resenia` | Calificaciones y comentarios de productos |
+| `Favorito` | Productos guardados por usuario |
+| `Notificacion` | Sistema de alertas internas por usuario |
 
 ### 3. Frontend (Migración a React)
 
